@@ -1,0 +1,20 @@
+{
+  "name": "koddlo/design-patterns",
+  "description": "The Design Patterns in PHP",
+  "keywords": ["design patterns", "php", "koddlo"],
+  "license": "MIT",
+  "type": "project",
+  "autoload": {
+    "psr-4": {
+      "DesignPatterns\\Creational\\": "src/Creational",
+      "DesignPatterns\\Behavioral\\": "src/Behavioral",
+      "DesignPatterns\\Structural\\": "src/Structural"
+    }
+  },
+  "require": {
+    "php": ">=7.4"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^8"
+  }
+}
