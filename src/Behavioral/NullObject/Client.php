@@ -8,7 +8,7 @@ class Client
 {
     private ?ClientType $type;
 
-    public function setType(?ClientType $type)
+    public function setType(?ClientType $type): void
     {
         $this->type = $type;
     }
