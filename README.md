@@ -8,21 +8,22 @@
 [Introduction](https://koddlo.pl/wzorce-projektowe-w-php/)
 
 Creational:
-- [Singleton](https://koddlo.pl/singleton/)
-- [Simple Factory](https://koddlo.pl/simple-factory-prosta-fabryka/)
-- [Factory Method](https://koddlo.pl/factory-method-metoda-wytworcza/)
 - [Abstract Factory](https://koddlo.pl/abstract-factory-fabryka-abstrakcyjna/)
 - [Builder](https://koddlo.pl/builder-budowniczy/)
+- [Factory Method](https://koddlo.pl/factory-method-metoda-wytworcza/)
 - [Prototype](https://koddlo.pl/prototype-prototyp/)
+- [Simple Factory](https://koddlo.pl/simple-factory-prosta-fabryka/)
+- [Singleton](https://koddlo.pl/singleton/)
 
 Structural:
-- [Decorator](https://koddlo.pl/decorator-dekorator/)
 - [Adapter](https://koddlo.pl/adapter-adapter/)
+- [Bridge](https://koddlo.pl/bridge-most/)
+- [Decorator](https://koddlo.pl/decorator-dekorator/)
 - [Proxy](https://koddlo.pl/proxy-pelnomocnik/)
 
 Behavioral:
-- [Strategy](https://koddlo.pl/strategy-strategia/)
 - [Null Object](https://koddlo.pl/null-object-pusty-obiekt/)
+- [Strategy](https://koddlo.pl/strategy-strategia/)
 
 I also recommend you two great websites with design patterns:
 
