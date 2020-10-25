@@ -1,0 +1,21 @@
+version: '3.7'
+services:
+  server:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: 'design_patterns_php'
+    restart: 'on-failure'
+    tty: true
+    volumes:
+      - .:/var/www/html
+    networks:
+      design-patterns-php:
+        ipv4_address: 10.20.0.10
+networks:
+  design-patterns-php:
+    name: design-patterns-php
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.20.0.0/16
