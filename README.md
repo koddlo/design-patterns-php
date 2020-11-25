@@ -22,6 +22,7 @@ Structural:
 - [Proxy](https://koddlo.pl/proxy-pelnomocnik/)
 
 Behavioral:
+- [Command](https://koddlo.pl/command-polecenie/)
 - [Null Object](https://koddlo.pl/null-object-pusty-obiekt/)
 - [Observer](https://koddlo.pl/observer-obserwator/)
 - [Strategy](https://koddlo.pl/strategy-strategia/)
