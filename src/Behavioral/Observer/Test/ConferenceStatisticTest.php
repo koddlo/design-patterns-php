@@ -14,13 +14,13 @@ class ConferenceStatisticTest extends TestCase
     {
         $conferenceStatistics = new ConferenceStatistic();
 
-        $conference1 = new Conference(new \DateTime());
+        $conference1 = new Conference(new \DateTimeImmutable());
         $conference1->attach($conferenceStatistics);
         $conference1->online();
 
         $this->assertSame($conferenceStatistics->countOnline(), 1);
 
-        $conference2 = new Conference(new \DateTime());
+        $conference2 = new Conference(new \DateTimeImmutable());
         $conference2->attach($conferenceStatistics);
         $conference2->online();
 

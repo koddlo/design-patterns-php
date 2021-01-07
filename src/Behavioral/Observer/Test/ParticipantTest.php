@@ -13,7 +13,7 @@ class ParticipantTest extends TestCase
     public function testCanBookNewConference(): void
     {
         $participant = new Participant();
-        $conference = new Conference(new \DateTime());
+        $conference = new Conference(new \DateTimeImmutable());
         $conference->attach($participant);
         $conference->online();
 
@@ -23,9 +23,9 @@ class ParticipantTest extends TestCase
     public function testCannotBookSameConferenceTwice(): void
     {
         $participant = new Participant();
-        $conference = new Conference(new \DateTime());
+        $conference = new Conference(new \DateTimeImmutable());
         $conference->attach($participant);
-        $conference->changeDate(new \DateTime());
+        $conference->changeDate(new \DateTimeImmutable());
         $conference->online();
 
         $this->assertCount(1, $participant->getCalendar());
@@ -33,7 +33,7 @@ class ParticipantTest extends TestCase
 
     public function testCannotBookSameDateTwice(): void
     {
-        $sameDate = new \DateTime();
+        $sameDate = new \DateTimeImmutable();
         $participant = new Participant();
         $conference1 = new Conference($sameDate);
         $conference1->attach($participant);
@@ -47,9 +47,9 @@ class ParticipantTest extends TestCase
 
     public function testIsBookDateChangedWhenNewDateIsFree(): void
     {
-        $changedDate = new \DateTime();
+        $changedDate = new \DateTimeImmutable();
         $participant = new Participant();
-        $conference = new Conference(new \DateTime());
+        $conference = new Conference(new \DateTimeImmutable());
         $conference->attach($participant);
         $conference->online();
         $conference->changeDate($changedDate);
@@ -59,13 +59,13 @@ class ParticipantTest extends TestCase
 
     public function testIsBookDateCanceledWhenNewDateIsNotFree(): void
     {
-        $bookedDate = new \DateTime();
+        $bookedDate = new \DateTimeImmutable();
         $participant = new Participant();
         $conference1 = new Conference($bookedDate);
         $conference1->attach($participant);
         $conference1->online();
 
-        $conference2 = new Conference((new \DateTime())->modify('+1 days'));
+        $conference2 = new Conference((new \DateTimeImmutable())->modify('+1 days'));
         $conference2->attach($participant);
         $conference2->online();
 

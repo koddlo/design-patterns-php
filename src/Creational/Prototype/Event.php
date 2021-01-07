@@ -14,7 +14,7 @@ class Event implements EventPrototype
 
     private int $budget = 0;
 
-    private \DateTime $created;
+    private \DateTimeImmutable $created;
 
     private array $invitations;
 
@@ -24,14 +24,14 @@ class Event implements EventPrototype
         $this->city = $city;
         $this->place = $place;
         $place->setEvent($this);
-        $this->created = new \DateTime();
+        $this->created = new \DateTimeImmutable();
         $this->invitations = [];
     }
 
     public function __clone()
     {
         $this->id = uniqid();
-        $this->created = new \DateTime();
+        $this->created = new \DateTimeImmutable();
         $this->place = clone $this->place;
         $this->place->setEvent($this);
         $this->invitations = [];

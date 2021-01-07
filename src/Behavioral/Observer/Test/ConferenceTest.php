@@ -12,7 +12,7 @@ class ConferenceTest extends TestCase
 {
     public function testCanNotifyAttachedObserver(): void
     {
-        $conference = new Conference(new \DateTime());
+        $conference = new Conference(new \DateTimeImmutable());
         $splObserverMock = $this->prophesize(\SplObserver::class);
         $splObserverMock
             ->update($conference)
@@ -24,7 +24,7 @@ class ConferenceTest extends TestCase
 
     public function testCannotNotifyDetachedObserver(): void
     {
-        $conference = new Conference(new \DateTime());
+        $conference = new Conference(new \DateTimeImmutable());
         $splObserverMock = $this->prophesize(\SplObserver::class);
         $splObserverMock
             ->update($conference)
@@ -37,8 +37,8 @@ class ConferenceTest extends TestCase
 
     public function testCanChangeTypeToOnlineOnlyIfIsUndecided(): void
     {
-        $conferenceUndecided = new Conference(new \DateTime());
-        $conferenceOffline = (new Conference(new \DateTime()));
+        $conferenceUndecided = new Conference(new \DateTimeImmutable());
+        $conferenceOffline = (new Conference(new \DateTimeImmutable()));
         $conferenceOffline->offline();
 
         $conferenceUndecided->online();
@@ -52,8 +52,8 @@ class ConferenceTest extends TestCase
 
     public function testCanChangeTypeToOfflineOnlyIfIsUndecided(): void
     {
-        $conferenceUndecided = new Conference(new \DateTime());
-        $conferenceOnline = (new Conference(new \DateTime()));
+        $conferenceUndecided = new Conference(new \DateTimeImmutable());
+        $conferenceOnline = (new Conference(new \DateTimeImmutable()));
         $conferenceOnline->online();
 
         $conferenceUndecided->offline();

@@ -13,7 +13,7 @@ class SponsorTest extends TestCase
     public function testShouldStopSubscribingOnlineConference(): void
     {
         $sponsor = new Sponsor();
-        $conference = new Conference(new \DateTime());
+        $conference = new Conference(new \DateTimeImmutable());
         $conference->attach($sponsor);
 
         $this->assertSame(1, $conference->countObservers());

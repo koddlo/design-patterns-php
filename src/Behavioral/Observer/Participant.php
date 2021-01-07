@@ -30,7 +30,7 @@ class Participant implements \SplObserver
         return $this->calendar;
     }
 
-    private function book(string $conferenceId, \DateTime $conferenceDate)
+    private function book(string $conferenceId, \DateTimeImmutable $conferenceDate)
     {
         $this->calendar[$conferenceId] = $conferenceDate->format('d.m.Y');
     }
@@ -40,7 +40,7 @@ class Participant implements \SplObserver
         unset($this->calendar[$conferenceId]);
     }
 
-    private function isDateFree(string $conferenceId, \DateTime $date): bool
+    private function isDateFree(string $conferenceId, \DateTimeImmutable $date): bool
     {
         return !in_array($date->format('d.m.Y'), $this->calendar)
             || $this->calendar[$conferenceId] === $date->format('d.m.Y');

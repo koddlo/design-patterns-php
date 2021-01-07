@@ -17,6 +17,6 @@ class ExternalLogger
 
     private function createLogMessage(string $message): string
     {
-        return sprintf("%s: '%s'\n", (new \DateTime())->format('H:i'), $message);
+        return sprintf("%s: '%s'\n", (new \DateTimeImmutable())->format('H:i'), $message);
     }
 }

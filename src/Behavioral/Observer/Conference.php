@@ -12,13 +12,13 @@ class Conference implements \SplSubject
 
     private string $id;
 
-    private \DateTime $date;
+    private \DateTimeImmutable $date;
 
     private int $type;
 
     private \SplObjectStorage $observers;
 
-    public function __construct(\DateTime $date)
+    public function __construct(\DateTimeImmutable $date)
     {
         $this->id = uniqid();
         $this->date = $date;
@@ -54,12 +54,12 @@ class Conference implements \SplSubject
         return $this->id;
     }
 
-    public function getDate(): \DateTime
+    public function getDate(): \DateTimeImmutable
     {
         return $this->date;
     }
 
-    public function changeDate(\DateTime $date): void
+    public function changeDate(\DateTimeImmutable $date): void
     {
         $this->date = $date;
         $this->notify();
