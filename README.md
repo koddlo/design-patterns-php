@@ -26,6 +26,7 @@ Behavioral:
 - [Null Object](https://koddlo.pl/null-object-pusty-obiekt/)
 - [Observer](https://koddlo.pl/observer-obserwator/)
 - [Strategy](https://koddlo.pl/strategy-strategia/)
+- [Template Method](https://koddlo.pl/template-method-metoda-szablonowa/)
 
 I also recommend you two great websites with design patterns:
 

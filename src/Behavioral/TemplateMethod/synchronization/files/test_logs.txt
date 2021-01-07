@@ -1,0 +1,4 @@
+30.12.2020 22:22, Entity does not exist
+30.12.2020 10:10, Cannot download report
+31.12.2020 12:12, Access denied
+01.01.2021 03:03, Entity does not exist
