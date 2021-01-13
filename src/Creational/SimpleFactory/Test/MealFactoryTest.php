@@ -11,7 +11,7 @@ use DesignPatterns\Creational\SimpleFactory\MealInterface;
 use DesignPatterns\Creational\SimpleFactory\MealType;
 use PHPUnit\Framework\TestCase;
 
-class MealFactoryTest extends TestCase
+final class MealFactoryTest extends TestCase
 {
     private MealFactory $mealFactory;
 

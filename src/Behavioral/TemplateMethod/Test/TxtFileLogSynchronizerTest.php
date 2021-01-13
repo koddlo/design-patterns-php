@@ -7,7 +7,7 @@ namespace DesignPatterns\Behavioral\TemplateMethod\Test;
 use DesignPatterns\Behavioral\TemplateMethod\TxtFileLogSynchronizer;
 use PHPUnit\Framework\TestCase;
 
-class TxtFileLogSynchronizerTest extends TestCase
+final class TxtFileLogSynchronizerTest extends TestCase
 {
     public function testCanSynchronizeLogsFromTestFile(): void
     {

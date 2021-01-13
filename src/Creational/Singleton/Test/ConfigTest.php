@@ -7,7 +7,7 @@ namespace DesignPatterns\Creational\Singleton\Test;
 use DesignPatterns\Creational\Singleton\Config;
 use PHPUnit\Framework\TestCase;
 
-class ConfigTest extends TestCase
+final class ConfigTest extends TestCase
 {
     public function testIsConstructorPrivate(): void
     {

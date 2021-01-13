@@ -11,7 +11,7 @@ use DesignPatterns\Structural\Decorator\Sticker;
 use DesignPatterns\Structural\Decorator\Ticket;
 use PHPUnit\Framework\TestCase;
 
-class OptionDecoratorTest extends TestCase
+final class OptionDecoratorTest extends TestCase
 {
     private Ticket $ticket;
 

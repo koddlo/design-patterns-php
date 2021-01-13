@@ -8,7 +8,7 @@ use DesignPatterns\Behavioral\Observer\Conference;
 use DesignPatterns\Behavioral\Observer\Sponsor;
 use PHPUnit\Framework\TestCase;
 
-class SponsorTest extends TestCase
+final class SponsorTest extends TestCase
 {
     public function testShouldStopSubscribingOnlineConference(): void
     {

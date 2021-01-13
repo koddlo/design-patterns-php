@@ -8,7 +8,7 @@ use DesignPatterns\Structural\Proxy\FileEncoder;
 use DesignPatterns\Structural\Proxy\FileEncoderProxy;
 use PHPUnit\Framework\TestCase;
 
-class FileEncoderProxyTest extends TestCase
+final class FileEncoderProxyTest extends TestCase
 {
     public function testProxyDoesNotChangeResult(): void
     {

@@ -12,7 +12,7 @@ use DesignPatterns\Creational\AbstractFactory\VeganDinner;
 use DesignPatterns\Creational\AbstractFactory\VeganMealFactory;
 use PHPUnit\Framework\TestCase;
 
-class VeganMealFactoryTest extends TestCase
+final class VeganMealFactoryTest extends TestCase
 {
     private AbstractMealFactory $veganMealFactory;
 

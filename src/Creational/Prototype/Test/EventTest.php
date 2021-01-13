@@ -11,7 +11,7 @@ use DesignPatterns\Creational\Prototype\Invitation;
 use DesignPatterns\Creational\Prototype\Place;
 use PHPUnit\Framework\TestCase;
 
-class EventTest extends TestCase
+final class EventTest extends TestCase
 {
     private Event $event;
 

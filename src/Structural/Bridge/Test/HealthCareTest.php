@@ -9,7 +9,7 @@ use DesignPatterns\Structural\Bridge\Junior;
 use DesignPatterns\Structural\Bridge\Senior;
 use PHPUnit\Framework\TestCase;
 
-class HealthCareTest extends TestCase
+final class HealthCareTest extends TestCase
 {
     public function testCalculatingGrantForJunior(): void
     {

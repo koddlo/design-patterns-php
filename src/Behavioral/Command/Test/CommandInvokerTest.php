@@ -8,7 +8,7 @@ use DesignPatterns\Behavioral\Command\CommandInterface;
 use DesignPatterns\Behavioral\Command\CommandInvoker;
 use PHPUnit\Framework\TestCase;
 
-class CommandInvokerTest extends TestCase
+final class CommandInvokerTest extends TestCase
 {
     public function testCanInvokeCommand(): void
     {

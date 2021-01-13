@@ -8,7 +8,7 @@ use DesignPatterns\Behavioral\Observer\Conference;
 use DesignPatterns\Behavioral\Observer\ConferenceStatistic;
 use PHPUnit\Framework\TestCase;
 
-class ConferenceStatisticTest extends TestCase
+final class ConferenceStatisticTest extends TestCase
 {
     public function testCanCollectStatisticsForFewConferences(): void
     {

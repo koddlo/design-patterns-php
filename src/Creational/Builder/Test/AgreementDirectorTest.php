@@ -11,7 +11,7 @@ use DesignPatterns\Creational\Builder\EmploymentContract;
 use DesignPatterns\Creational\Builder\EmploymentContractBuilder;
 use PHPUnit\Framework\TestCase;
 
-class AgreementDirectorTest extends TestCase
+final class AgreementDirectorTest extends TestCase
 {
     public function testCanBuildAnonymousB2BContract(): void
     {

@@ -8,7 +8,7 @@ use DesignPatterns\Behavioral\Observer\Conference;
 use DesignPatterns\Behavioral\Observer\InvalidConferenceTypeException;
 use PHPUnit\Framework\TestCase;
 
-class ConferenceTest extends TestCase
+final class ConferenceTest extends TestCase
 {
     public function testCanNotifyAttachedObserver(): void
     {

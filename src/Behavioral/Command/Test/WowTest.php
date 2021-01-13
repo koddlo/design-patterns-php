@@ -9,7 +9,7 @@ use DesignPatterns\Behavioral\Command\Post;
 use DesignPatterns\Behavioral\Command\Wow;
 use PHPUnit\Framework\TestCase;
 
-class WowTest extends TestCase
+final class WowTest extends TestCase
 {
     public function testCanReactWow(): void
     {

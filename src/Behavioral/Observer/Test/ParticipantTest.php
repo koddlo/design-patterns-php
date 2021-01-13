@@ -8,7 +8,7 @@ use DesignPatterns\Behavioral\Observer\Conference;
 use DesignPatterns\Behavioral\Observer\Participant;
 use PHPUnit\Framework\TestCase;
 
-class ParticipantTest extends TestCase
+final class ParticipantTest extends TestCase
 {
     public function testCanBookNewConference(): void
     {

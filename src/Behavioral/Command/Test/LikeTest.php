@@ -9,7 +9,7 @@ use DesignPatterns\Behavioral\Command\Like;
 use DesignPatterns\Behavioral\Command\Post;
 use PHPUnit\Framework\TestCase;
 
-class LikeTest extends TestCase
+final class LikeTest extends TestCase
 {
     public function testCanReactLike(): void
     {

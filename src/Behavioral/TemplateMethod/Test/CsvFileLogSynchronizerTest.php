@@ -7,7 +7,7 @@ namespace DesignPatterns\Behavioral\TemplateMethod\Test;
 use DesignPatterns\Behavioral\TemplateMethod\CsvFileLogSynchronizer;
 use PHPUnit\Framework\TestCase;
 
-class CsvFileLogSynchronizerTest extends TestCase
+final class CsvFileLogSynchronizerTest extends TestCase
 {
     public function testCanSynchronizeLogsFromTestFile(): void
     {

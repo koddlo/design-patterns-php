@@ -9,7 +9,7 @@ use DesignPatterns\Structural\Adapter\LogAdapter;
 use DesignPatterns\Structural\Adapter\LoggerInterface;
 use PHPUnit\Framework\TestCase;
 
-class LogAdapterTest extends TestCase
+final class LogAdapterTest extends TestCase
 {
     public function testLogAdapterImplementsLogInterface(): void
     {

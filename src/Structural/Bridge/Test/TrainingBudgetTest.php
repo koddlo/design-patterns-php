@@ -9,7 +9,7 @@ use DesignPatterns\Structural\Bridge\Senior;
 use DesignPatterns\Structural\Bridge\TrainingBudget;
 use PHPUnit\Framework\TestCase;
 
-class TrainingBudgetTest extends TestCase
+final class TrainingBudgetTest extends TestCase
 {
     public function testCalculatingGrantForJunior(): void
     {

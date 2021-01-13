@@ -8,7 +8,7 @@ use DesignPatterns\Behavioral\Strategy\NotificationPreference;
 use DesignPatterns\Behavioral\Strategy\UserNotification;
 use PHPUnit\Framework\TestCase;
 
-class UserNotificationTest extends TestCase
+final class UserNotificationTest extends TestCase
 {
     public function testCanNotifyUserByEmailAboutPasswordExpire(): void
     {

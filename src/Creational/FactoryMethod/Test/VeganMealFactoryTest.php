@@ -10,7 +10,7 @@ use DesignPatterns\Creational\FactoryMethod\AbstractMealFactory;
 use DesignPatterns\Creational\FactoryMethod\MealInterface;
 use PHPUnit\Framework\TestCase;
 
-class VeganMealFactoryTest extends TestCase
+final class VeganMealFactoryTest extends TestCase
 {
     private AbstractMealFactory $veganMealFactory;
 

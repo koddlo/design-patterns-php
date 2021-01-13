@@ -10,7 +10,7 @@ use DesignPatterns\Behavioral\NullObject\ClientTypeInterface;
 use DesignPatterns\Behavioral\NullObject\NullClientType;
 use PHPUnit\Framework\TestCase;
 
-class ClientTest extends TestCase
+final class ClientTest extends TestCase
 {
     public function testCanSetType(): void
     {
