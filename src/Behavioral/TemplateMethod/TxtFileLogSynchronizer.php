@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Behavioral\TemplateMethod;
 
-class TxtFileLogSynchronizer extends FileLogSynchronizer
+class TxtFileLogSynchronizer extends AbstractFileLogSynchronizer
 {
-    public function __construct(LogRepository $logRepository)
+    public function __construct(LogRepositoryInterface $logRepository)
     {
         parent::__construct($logRepository);
     }

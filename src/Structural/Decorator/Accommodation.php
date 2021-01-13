@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Structural\Decorator;
 
-class Accommodation extends OptionDecorator
+class Accommodation extends AbstractOptionDecorator
 {
     public const PRICE = 180.00;
 

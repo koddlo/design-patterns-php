@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Behavioral\Command;
 
-class Post implements Interactive
+class Post implements InteractiveInterface
 {
     public const LIKE_SLUG = 'like';
     public const WOW_SLUG = 'wow';

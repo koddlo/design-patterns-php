@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Structural\Decorator;
 
-class Mascot extends OptionDecorator
+class Mascot extends AbstractOptionDecorator
 {
     public const PRICE = 30.00;
 

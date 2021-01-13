@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Creational\Prototype;
 
-class Event implements EventPrototype
+class Event implements EventPrototypeInterface
 {
     private string $id;
 

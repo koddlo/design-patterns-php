@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Creational\FactoryMethod;
 
-class VegetarianMealFactory extends MealFactory
+class VegetarianMealFactory extends AbstractMealFactory
 {
     public function createMeal(): MealInterface
     {

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Creational\FactoryMethod;
 
-abstract class MealFactory
+abstract class AbstractMealFactory
 {
     abstract public function createMeal(): MealInterface;
 

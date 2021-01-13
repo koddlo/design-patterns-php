@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Creational\Prototype;
 
-interface EventPrototype
+interface EventPrototypeInterface
 {
     public function __clone();
 }

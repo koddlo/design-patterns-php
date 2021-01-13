@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Behavioral\Command;
 
-interface Interactive
+interface InteractiveInterface
 {
     public function like(string $authorId): void;
 

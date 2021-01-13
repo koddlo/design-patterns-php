@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Behavioral\Strategy;
 
-interface NotifyStrategy
+interface NotifyInterface
 {
     public function notify(string $message): string;
 }

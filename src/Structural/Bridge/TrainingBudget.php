@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Structural\Bridge;
 
-class TrainingBudget extends Benefit
+class TrainingBudget extends AbstractBenefit
 {
     private const MAX_GRANT = 1000;
 
@@ -22,7 +22,7 @@ class TrainingBudget extends Benefit
 
     private function bonus(float $authorityFactor, float $grant): float
     {
-        $halfOfMaxAuthority = (JobLevel::MAX_AUTHORITY / 2) / JobLevel::MAX_AUTHORITY;
+        $halfOfMaxAuthority = (JobLevelInterface::MAX_AUTHORITY / 2) / JobLevelInterface::MAX_AUTHORITY;
         if ($authorityFactor < $halfOfMaxAuthority) {
             return $grant * self::BONUS_RATIO;
         }

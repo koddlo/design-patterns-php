@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Structural\Adapter;
 
-class LogAdapter implements Logger
+class LogAdapter implements LoggerInterface
 {
     private ExternalLogger $logger;
 

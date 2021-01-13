@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Structural\Bridge;
 
-interface JobLevel
+interface JobLevelInterface
 {
     public const MAX_AUTHORITY = 10;
 

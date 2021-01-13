@@ -12,7 +12,7 @@ class UserNotification
     {
         $messages = [];
         $notifyStrategies = $this->determineStrategies($notificationPreference);
-        /** @var NotifyStrategy $notifyStrategy */
+        /** @var NotifyInterface $notifyStrategy */
         foreach ($notifyStrategies as $notifyStrategy) {
             $messages[] = $notifyStrategy->notify(self::PASSWORD_EXPIRE_MESSAGE);
         }

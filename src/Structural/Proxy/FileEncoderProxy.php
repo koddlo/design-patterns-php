@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Structural\Proxy;
 
-class FileEncoderProxy implements Base64Encode
+class FileEncoderProxy implements Base64EncodingInterface
 {
     private array $cache = [];
 

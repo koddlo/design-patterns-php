@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Behavioral\Command;
 
-class Wow implements Command
+class Wow implements CommandInterface
 {
     private Author $author;
 
-    private Interactive $interactive;
+    private InteractiveInterface $interactive;
 
-    public function __construct(Author $author, Interactive $interactive)
+    public function __construct(Author $author, InteractiveInterface $interactive)
     {
         $this->author = $author;
         $this->interactive = $interactive;

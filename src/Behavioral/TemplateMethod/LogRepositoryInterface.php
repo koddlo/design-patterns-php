@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Behavioral\TemplateMethod;
 
-interface LogRepository
+interface LogRepositoryInterface
 {
     public function save(array $logs): void;
 }

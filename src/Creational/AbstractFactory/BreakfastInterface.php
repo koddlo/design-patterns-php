@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Creational\AbstractFactory;
 
-interface Dinner
+interface BreakfastInterface
 {
-    public function canBePackedInGlassContainer(): bool;
+    public function shouldAddVitaminB12Supplement(): bool;
 }

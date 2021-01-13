@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Creational\Builder;
 
-abstract class Agreement
+abstract class AbstractAgreement
 {
     private string $title;
 

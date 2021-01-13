@@ -6,9 +6,9 @@ namespace DesignPatterns\Behavioral\Command;
 
 class CommandInvoker
 {
-    private Command $command;
+    private CommandInterface $command;
 
-    public function setCommand(Command $command): void
+    public function setCommand(CommandInterface $command): void
     {
         $this->command = $command;
     }

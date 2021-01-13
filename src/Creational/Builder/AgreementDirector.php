@@ -6,14 +6,14 @@ namespace DesignPatterns\Creational\Builder;
 
 class AgreementDirector
 {
-    private AgreementBuilder $builder;
+    private AgreementBuilderInterface $builder;
 
-    public function __construct(AgreementBuilder $builder)
+    public function __construct(AgreementBuilderInterface $builder)
     {
         $this->builder = $builder;
     }
 
-    public function changeBuilder(AgreementBuilder $builder): void
+    public function changeBuilder(AgreementBuilderInterface $builder): void
     {
         $this->builder = $builder;
     }

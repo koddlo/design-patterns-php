@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Structural\Decorator;
 
-interface Option
+interface OptionInterface
 {
     public function calculatePrice(): float;
 }

@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Behavioral\TemplateMethod\Test;
 
-use DesignPatterns\Behavioral\TemplateMethod\LogRepository;
+use DesignPatterns\Behavioral\TemplateMethod\LogRepositoryInterface;
 
-class FakeLogRepository implements LogRepository
+class FakeLogRepository implements LogRepositoryInterface
 {
     public function save(array $logs): void
     {

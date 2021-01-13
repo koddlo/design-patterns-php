@@ -6,7 +6,7 @@ namespace DesignPatterns\Structural\Adapter\Test;
 
 use DesignPatterns\Structural\Adapter\ExternalLogger;
 use DesignPatterns\Structural\Adapter\LogAdapter;
-use DesignPatterns\Structural\Adapter\Logger;
+use DesignPatterns\Structural\Adapter\LoggerInterface;
 use PHPUnit\Framework\TestCase;
 
 class LogAdapterTest extends TestCase
@@ -16,7 +16,7 @@ class LogAdapterTest extends TestCase
         $externalLogger = $this->prophesize(ExternalLogger::class);
         $logAdapter = new LogAdapter($externalLogger->reveal());
 
-        $this->assertInstanceOf(Logger::class, $logAdapter);
+        $this->assertInstanceOf(LoggerInterface::class, $logAdapter);
     }
 
     public function testCanLogIntoFile(): void

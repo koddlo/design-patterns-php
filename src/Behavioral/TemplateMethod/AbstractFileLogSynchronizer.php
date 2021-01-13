@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Behavioral\TemplateMethod;
 
-abstract class FileLogSynchronizer
+abstract class AbstractFileLogSynchronizer
 {
     private const FILE_PATH = __DIR__ . '/synchronization/files/';
 
-    protected LogRepository $logRepository;
+    protected LogRepositoryInterface $logRepository;
 
-    public function __construct(LogRepository $logRepository)
+    public function __construct(LogRepositoryInterface $logRepository)
     {
         $this->logRepository = $logRepository;
     }

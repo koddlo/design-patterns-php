@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Behavioral\Command;
 
-interface Command
+interface CommandInterface
 {
     public function execute(): void;
 }

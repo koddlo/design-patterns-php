@@ -6,7 +6,7 @@ namespace DesignPatterns\Creational\Prototype\Test;
 
 use DesignPatterns\Creational\Prototype\City;
 use DesignPatterns\Creational\Prototype\Event;
-use DesignPatterns\Creational\Prototype\EventPrototype;
+use DesignPatterns\Creational\Prototype\EventPrototypeInterface;
 use DesignPatterns\Creational\Prototype\Invitation;
 use DesignPatterns\Creational\Prototype\Place;
 use PHPUnit\Framework\TestCase;
@@ -25,7 +25,7 @@ class EventTest extends TestCase
 
     public function testIsEventValidAfterCreation(): void
     {
-        $this->assertInstanceOf(EventPrototype::class, $this->event);
+        $this->assertInstanceOf(EventPrototypeInterface::class, $this->event);
         $this->assertIsString($this->event->getId());
         $this->assertInstanceOf(City::class, $this->event->getCity());
         $this->assertInstanceOf(Place::class, $this->event->getPlace());

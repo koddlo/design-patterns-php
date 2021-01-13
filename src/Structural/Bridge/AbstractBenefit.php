@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Structural\Bridge;
 
-abstract class Benefit
+abstract class AbstractBenefit
 {
-    protected JobLevel $level;
+    protected JobLevelInterface $level;
 
-    public function __construct(JobLevel $level)
+    public function __construct(JobLevelInterface $level)
     {
         $this->level = $level;
     }
