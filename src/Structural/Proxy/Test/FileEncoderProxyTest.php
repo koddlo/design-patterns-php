@@ -7,9 +7,12 @@ namespace DesignPatterns\Structural\Proxy\Test;
 use DesignPatterns\Structural\Proxy\FileEncoder;
 use DesignPatterns\Structural\Proxy\FileEncoderProxy;
 use PHPUnit\Framework\TestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 
 final class FileEncoderProxyTest extends TestCase
 {
+    use ProphecyTrait;
+
     public function testProxyDoesNotChangeResult(): void
     {
         $fileTestPath = 'https://koddlo.pl/images/test.png';

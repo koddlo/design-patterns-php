@@ -43,6 +43,6 @@ class Participant implements \SplObserver
     private function isDateFree(string $conferenceId, \DateTimeImmutable $date): bool
     {
         return !in_array($date->format('d.m.Y'), $this->calendar)
-            || $this->calendar[$conferenceId] === $date->format('d.m.Y');
+            || (isset($this->calendar[$conferenceId]) && $this->calendar[$conferenceId] === $date->format('d.m.Y'));
     }
 }

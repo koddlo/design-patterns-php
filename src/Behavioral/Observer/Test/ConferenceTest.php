@@ -7,9 +7,12 @@ namespace DesignPatterns\Behavioral\Observer\Test;
 use DesignPatterns\Behavioral\Observer\Conference;
 use DesignPatterns\Behavioral\Observer\InvalidConferenceTypeException;
 use PHPUnit\Framework\TestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 
 final class ConferenceTest extends TestCase
 {
+    use ProphecyTrait;
+
     public function testCanNotifyAttachedObserver(): void
     {
         $conference = new Conference(new \DateTimeImmutable());

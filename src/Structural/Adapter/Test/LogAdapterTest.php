@@ -8,9 +8,12 @@ use DesignPatterns\Structural\Adapter\ExternalLogger;
 use DesignPatterns\Structural\Adapter\LogAdapter;
 use DesignPatterns\Structural\Adapter\LoggerInterface;
 use PHPUnit\Framework\TestCase;
+use Prophecy\PhpUnit\ProphecyTrait;
 
 final class LogAdapterTest extends TestCase
 {
+    use ProphecyTrait;
+
     public function testLogAdapterImplementsLogInterface(): void
     {
         $externalLogger = $this->prophesize(ExternalLogger::class);
