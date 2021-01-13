@@ -13,17 +13,10 @@ use PHPUnit\Framework\TestCase;
 
 final class MealFactoryTest extends TestCase
 {
-    private MealFactory $mealFactory;
-
-    protected function setUp(): void
-    {
-        $this->mealFactory = new MealFactory();
-    }
-
     public function testCanCreateVegetarianMeal(): void
     {
         $mealType = new MealType(MealType::TYPE_VEGETARIAN);
-        $meal = $this->mealFactory->create($mealType);
+        $meal = (new MealFactory())->create($mealType);
 
         $this->assertInstanceOf(MealInterface::class, $meal);
         $this->assertInstanceOf(VegetarianMeal::class, $meal);
@@ -32,7 +25,7 @@ final class MealFactoryTest extends TestCase
     public function testCanCreateVeganMeal(): void
     {
         $mealType = new MealType(MealType::TYPE_VEGAN);
-        $meal = $this->mealFactory->create($mealType);
+        $meal = (new MealFactory())->create($mealType);
 
         $this->assertInstanceOf(MealInterface::class, $meal);
         $this->assertInstanceOf(VeganMeal::class, $meal);
@@ -45,6 +38,6 @@ final class MealFactoryTest extends TestCase
         $this->expectException(\InvalidArgumentException::class);
         $this->expectExceptionMessage('That type of meal does not exist');
 
-        $this->mealFactory->create($mealType);
+        (new MealFactory())->create($mealType);
     }
 }

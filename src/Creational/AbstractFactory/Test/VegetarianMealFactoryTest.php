@@ -6,7 +6,6 @@ namespace DesignPatterns\Creational\AbstractFactory\Test;
 
 use DesignPatterns\Creational\AbstractFactory\BreakfastInterface;
 use DesignPatterns\Creational\AbstractFactory\DinnerInterface;
-use DesignPatterns\Creational\AbstractFactory\AbstractMealFactory;
 use DesignPatterns\Creational\AbstractFactory\VegetarianBreakfast;
 use DesignPatterns\Creational\AbstractFactory\VegetarianDinner;
 use DesignPatterns\Creational\AbstractFactory\VegetarianMealFactory;
@@ -14,16 +13,9 @@ use PHPUnit\Framework\TestCase;
 
 final class VegetarianMealFactoryTest extends TestCase
 {
-    private AbstractMealFactory $vegetarianMealFactory;
-
-    protected function setUp(): void
-    {
-        $this->vegetarianMealFactory = new VegetarianMealFactory();
-    }
-
     public function testCanCreateVegetarianBreakfast(): void
     {
-        $meal = $this->vegetarianMealFactory->createBreakfast();
+        $meal = (new VegetarianMealFactory())->createBreakfast();
 
         $this->assertInstanceOf(VegetarianBreakfast::class, $meal);
         $this->assertInstanceOf(BreakfastInterface::class, $meal);
@@ -31,7 +23,7 @@ final class VegetarianMealFactoryTest extends TestCase
 
     public function testCanCreateVegetarianDinner(): void
     {
-        $meal = $this->vegetarianMealFactory->createDinner();
+        $meal = (new VegetarianMealFactory())->createDinner();
 
         $this->assertInstanceOf(VegetarianDinner::class, $meal);
         $this->assertInstanceOf(DinnerInterface::class, $meal);
