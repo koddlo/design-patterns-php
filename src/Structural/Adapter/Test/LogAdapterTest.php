@@ -8,16 +8,12 @@ use DesignPatterns\Structural\Adapter\ExternalLogger;
 use DesignPatterns\Structural\Adapter\LogAdapter;
 use DesignPatterns\Structural\Adapter\LoggerInterface;
 use PHPUnit\Framework\TestCase;
-use Prophecy\PhpUnit\ProphecyTrait;
 
 final class LogAdapterTest extends TestCase
 {
-    use ProphecyTrait;
-
     public function testLogAdapterImplementsLogInterface(): void
     {
-        $externalLogger = $this->prophesize(ExternalLogger::class);
-        $logAdapter = new LogAdapter($externalLogger->reveal());
+        $logAdapter = new LogAdapter(new ExternalLogger());
 
         $this->assertInstanceOf(LoggerInterface::class, $logAdapter);
     }
@@ -26,12 +22,13 @@ final class LogAdapterTest extends TestCase
     {
         $message = 'Test log message';
 
-        $externalLogger = $this->prophesize(ExternalLogger::class);
+        $externalLogger = $this->createMock(ExternalLogger::class);
         $externalLogger
-            ->saveLogIntoFile($message)
-            ->shouldBeCalledOnce();
+            ->expects($this->once())
+            ->method('saveLogIntoFile')
+            ->with($message);
 
-        $logAdapter = new LogAdapter($externalLogger->reveal());
+        $logAdapter = new LogAdapter($externalLogger);
         $logAdapter->log($message);
     }
 }

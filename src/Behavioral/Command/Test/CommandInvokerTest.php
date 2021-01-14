@@ -7,21 +7,18 @@ namespace Behavioral\Command\Test;
 use DesignPatterns\Behavioral\Command\CommandInterface;
 use DesignPatterns\Behavioral\Command\CommandInvoker;
 use PHPUnit\Framework\TestCase;
-use Prophecy\PhpUnit\ProphecyTrait;
 
 final class CommandInvokerTest extends TestCase
 {
-    use ProphecyTrait;
-
     public function testCanInvokeCommand(): void
     {
-        $command = $this->prophesize(CommandInterface::class);
+        $command = $this->createMock(CommandInterface::class);
         $command
-            ->execute()
-            ->shouldBeCalled();
+            ->expects($this->once())
+            ->method('execute');
 
         $invoker = new CommandInvoker();
-        $invoker->setCommand($command->reveal());
+        $invoker->setCommand($command);
         $invoker->invoke();
     }
 }

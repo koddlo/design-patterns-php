@@ -7,22 +7,22 @@ namespace DesignPatterns\Structural\Proxy\Test;
 use DesignPatterns\Structural\Proxy\FileEncoder;
 use DesignPatterns\Structural\Proxy\FileEncoderProxy;
 use PHPUnit\Framework\TestCase;
-use Prophecy\PhpUnit\ProphecyTrait;
 
 final class FileEncoderProxyTest extends TestCase
 {
-    use ProphecyTrait;
-
     public function testProxyDoesNotChangeResult(): void
     {
         $fileTestPath = 'https://koddlo.pl/images/test.png';
         $base64example = 'S29kZGxv';
 
-        $fileEncoder = $this->prophesize(FileEncoder::class);
+        $fileEncoder = $this->createMock(FileEncoder::class);
         $fileEncoder
-            ->encodeBase64($fileTestPath)
+            ->expects($this->any())
+            ->method('encodeBase64')
+            ->with($fileTestPath)
             ->willReturn($base64example);
-        $fileEncoderProxy = new FileEncoderProxy($fileEncoder->reveal());
+
+        $fileEncoderProxy = new FileEncoderProxy($fileEncoder);
 
         $this->assertSame($base64example, $fileEncoderProxy->encodeBase64($fileTestPath));
     }
@@ -32,12 +32,14 @@ final class FileEncoderProxyTest extends TestCase
         $fileTestPath = 'https://koddlo.pl/images/test.png';
         $base64example = 'S29kZGxv';
 
-        $fileEncoder = $this->prophesize(FileEncoder::class);
+        $fileEncoder = $this->createMock(FileEncoder::class);
         $fileEncoder
-            ->encodeBase64($fileTestPath)
-            ->shouldBeCalledOnce()
+            ->expects($this->once())
+            ->method('encodeBase64')
+            ->with($fileTestPath)
             ->willReturn($base64example);
-        $fileEncoderProxy = new FileEncoderProxy($fileEncoder->reveal());
+
+        $fileEncoderProxy = new FileEncoderProxy($fileEncoder);
 
         $fileEncoderProxy->encodeBase64($fileTestPath);
         $fileEncoderProxy->encodeBase64($fileTestPath);

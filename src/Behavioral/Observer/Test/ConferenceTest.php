@@ -7,34 +7,31 @@ namespace DesignPatterns\Behavioral\Observer\Test;
 use DesignPatterns\Behavioral\Observer\Conference;
 use DesignPatterns\Behavioral\Observer\InvalidConferenceTypeException;
 use PHPUnit\Framework\TestCase;
-use Prophecy\PhpUnit\ProphecyTrait;
 
 final class ConferenceTest extends TestCase
 {
-    use ProphecyTrait;
-
     public function testCanNotifyAttachedObserver(): void
     {
         $conference = new Conference(new \DateTimeImmutable());
-        $splObserverMock = $this->prophesize(\SplObserver::class);
+        $splObserverMock = $this->createMock(\SplObserver::class);
         $splObserverMock
-            ->update($conference)
-            ->shouldBeCalled();
+            ->expects($this->once())
+            ->method('update');
 
-        $conference->attach($splObserverMock->reveal());
+        $conference->attach($splObserverMock);
         $conference->notify();
     }
 
     public function testCannotNotifyDetachedObserver(): void
     {
         $conference = new Conference(new \DateTimeImmutable());
-        $splObserverMock = $this->prophesize(\SplObserver::class);
+        $splObserverMock = $this->createMock(\SplObserver::class);
         $splObserverMock
-            ->update($conference)
-            ->shouldNotBeCalled();
+            ->expects($this->never())
+            ->method('update');
 
-        $conference->attach($splObserverMock->reveal());
-        $conference->detach($splObserverMock->reveal());
+        $conference->attach($splObserverMock);
+        $conference->detach($splObserverMock);
         $conference->notify();
     }
 
