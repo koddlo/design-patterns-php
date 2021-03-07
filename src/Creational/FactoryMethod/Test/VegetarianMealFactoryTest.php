@@ -18,9 +18,4 @@ final class VegetarianMealFactoryTest extends TestCase
         $this->assertInstanceOf(MealInterface::class, $meal);
         $this->assertInstanceOf(VegetarianMeal::class, $meal);
     }
-
-    public function testIsVegetarianMealYummy(): void
-    {
-        $this->assertTrue((new VegetarianMealFactory())->isYummy());
-    }
 }

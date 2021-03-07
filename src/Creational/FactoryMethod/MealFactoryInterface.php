@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Creational\FactoryMethod;
 
-interface MealInterface
+interface MealFactoryInterface
 {
-    public function containsAnimalProducts(): bool;
+    public function createMeal(): MealInterface;
 }

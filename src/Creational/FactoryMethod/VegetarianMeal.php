@@ -10,9 +10,4 @@ class VegetarianMeal implements MealInterface
     {
         return true;
     }
-
-    public function containsVegetables(): bool
-    {
-        return true;
-    }
 }
