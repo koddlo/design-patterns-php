@@ -18,6 +18,7 @@ Creational:
 Structural:
 - [Adapter](https://koddlo.pl/adapter-adapter/)
 - [Bridge](https://koddlo.pl/bridge-most/)
+- [Composite](https://koddlo.pl/composite-kompozyt/)
 - [Decorator](https://koddlo.pl/decorator-dekorator/)
 - [Proxy](https://koddlo.pl/proxy-pelnomocnik/)
 
