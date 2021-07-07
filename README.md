@@ -24,6 +24,7 @@ Structural:
 
 Behavioral:
 - [Command](https://koddlo.pl/command-polecenie/)
+- [Iterator](https://koddlo.pl/iterator/)
 - [Null Object](https://koddlo.pl/null-object-pusty-obiekt/)
 - [Observer](https://koddlo.pl/observer-obserwator/)
 - [Strategy](https://koddlo.pl/strategy-strategia/)
