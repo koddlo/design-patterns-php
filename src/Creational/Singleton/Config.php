@@ -8,7 +8,9 @@ final class Config
 {
     private static ?Config $instance = null;
 
-    private function __construct() {}
+    private function __construct()
+    {
+    }
 
     public static function getInstance(): Config
     {

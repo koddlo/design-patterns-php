@@ -53,7 +53,10 @@ final class OptionDecoratorTest extends TestCase
         $option = new Sticker($option);
         $option = new Catering($option);
 
-        $fullPrice = $ticket->calculatePrice() + Mascot::PRICE + Accommodation::PRICE + Sticker::PRICE + Catering::PRICE;
+        $fullPrice = $ticket->calculatePrice()
+            + Mascot::PRICE
+            + Accommodation::PRICE
+            + Sticker::PRICE + Catering::PRICE;
 
         $this->assertSame($fullPrice, $option->calculatePrice());
     }

@@ -13,39 +13,39 @@ use PHPUnit\Framework\TestCase;
 
 final class EventTest extends TestCase
 {
-    private Event $event;
-
-    protected function setUp(): void
+    public function testIsEventValidAfterCreation(): void
     {
-        $this->event = (new Event(new City(), new Place()))
+        $event = (new Event(new City(), new Place()))
             ->setBudget(1000000)
             ->addInvitation(new Invitation())
             ->addInvitation(new Invitation());
-    }
 
-    public function testIsEventValidAfterCreation(): void
-    {
-        $this->assertInstanceOf(EventPrototypeInterface::class, $this->event);
-        $this->assertIsString($this->event->getId());
-        $this->assertInstanceOf(City::class, $this->event->getCity());
-        $this->assertInstanceOf(Place::class, $this->event->getPlace());
-        $this->assertSame(1000000, $this->event->getBudget());
-        $this->assertInstanceOf(\DateTimeInterface::class, $this->event->getCreated());
-        $this->assertSame($this->event, $this->event->getPlace()->getEvent());
-        $this->assertCount(2, $this->event->getInvitations());
+        $this->assertInstanceOf(EventPrototypeInterface::class, $event);
+        $this->assertIsString($event->getId());
+        $this->assertInstanceOf(City::class, $event->getCity());
+        $this->assertInstanceOf(Place::class, $event->getPlace());
+        $this->assertSame(1000000, $event->getBudget());
+        $this->assertInstanceOf(\DateTimeInterface::class, $event->getCreated());
+        $this->assertSame($event, $event->getPlace()->getEvent());
+        $this->assertCount(2, $event->getInvitations());
     }
 
     public function testIsConfiguredFineAfterClone(): void
     {
-        $cloneEvent = clone $this->event;
+        $event = (new Event(new City(), new Place()))
+            ->setBudget(1000000)
+            ->addInvitation(new Invitation())
+            ->addInvitation(new Invitation());
 
-        $this->assertNotEquals($this->event, $cloneEvent);
-        $this->assertNotSame($this->event->getId(), $cloneEvent->getId());
-        $this->assertSame($this->event->getCity(), $cloneEvent->getCity());
-        $this->assertSame($this->event->getBudget(), $cloneEvent->getBudget());
-        $this->assertNotSame($this->event->getCreated(), $cloneEvent->getCreated());
-        $this->assertNotSame($this->event->getPlace(), $cloneEvent->getPlace());
-        $this->assertNotSame($this->event, $cloneEvent->getPlace()->getEvent());
+        $cloneEvent = clone $event;
+
+        $this->assertNotEquals($event, $cloneEvent);
+        $this->assertNotSame($event->getId(), $cloneEvent->getId());
+        $this->assertSame($event->getCity(), $cloneEvent->getCity());
+        $this->assertSame($event->getBudget(), $cloneEvent->getBudget());
+        $this->assertNotSame($event->getCreated(), $cloneEvent->getCreated());
+        $this->assertNotSame($event->getPlace(), $cloneEvent->getPlace());
+        $this->assertNotSame($event, $cloneEvent->getPlace()->getEvent());
         $this->assertEmpty($cloneEvent->getInvitations());
     }
 }

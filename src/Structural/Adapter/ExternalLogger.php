@@ -10,7 +10,7 @@ class ExternalLogger
 
     public function saveLogIntoFile(string $log): void
     {
-        $logFile = self::FILE_DIR .'log_' . date('d-M-Y') . '.log';
+        $logFile = self::FILE_DIR . 'log_' . date('d-M-Y') . '.log';
 
         file_put_contents($logFile, $this->createLogMessage($log), FILE_APPEND);
     }
