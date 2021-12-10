@@ -20,6 +20,7 @@ Structural:
 - [Bridge](https://koddlo.pl/bridge-most/)
 - [Composite](https://koddlo.pl/composite-kompozyt/)
 - [Decorator](https://koddlo.pl/decorator-dekorator/)
+- [Facade](https://koddlo.pl/facade-fasada/)
 - [Proxy](https://koddlo.pl/proxy-pelnomocnik/)
 
 Behavioral:
