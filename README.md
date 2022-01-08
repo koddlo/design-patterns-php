@@ -24,6 +24,7 @@ Structural:
 - [Proxy](https://koddlo.pl/proxy-pelnomocnik/)
 
 Behavioral:
+- [Chain Of Responsibility](https://koddlo.pl/chain-of-responsibility-lancuch-zobowiazan/)
 - [Command](https://koddlo.pl/command-polecenie/)
 - [Iterator](https://koddlo.pl/iterator/)
 - [Null Object](https://koddlo.pl/null-object-pusty-obiekt/)
