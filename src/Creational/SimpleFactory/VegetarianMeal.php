@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Creational\SimpleFactory;
 
-class VegetarianMeal implements MealInterface
+final class VegetarianMeal implements MealInterface
 {
     public function containsAnimalProducts(): bool
     {

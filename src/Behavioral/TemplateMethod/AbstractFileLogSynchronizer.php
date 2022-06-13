@@ -8,12 +8,9 @@ abstract class AbstractFileLogSynchronizer
 {
     private const FILE_PATH = __DIR__ . '/synchronization/files/';
 
-    protected LogRepositoryInterface $logRepository;
-
-    public function __construct(LogRepositoryInterface $logRepository)
-    {
-        $this->logRepository = $logRepository;
-    }
+    public function __construct(
+        private LogRepositoryInterface $logRepository
+    ) {}
 
     final public function synchronize(string $fileName): void
     {

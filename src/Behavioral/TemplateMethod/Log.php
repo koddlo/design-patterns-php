@@ -4,15 +4,12 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Behavioral\TemplateMethod;
 
-class Log
+use DateTimeImmutable;
+
+final class Log
 {
-    private \DateTimeImmutable $date;
-
-    private string $message;
-
-    public function __construct(\DateTimeImmutable $date, string $message)
-    {
-        $this->date = $date;
-        $this->message = $message;
-    }
+    public function __construct(
+        public readonly DateTimeImmutable $date,
+        public readonly string $message
+    ) {}
 }

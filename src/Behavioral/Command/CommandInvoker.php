@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Behavioral\Command;
 
-class CommandInvoker
+final class CommandInvoker
 {
     private CommandInterface $command;
 

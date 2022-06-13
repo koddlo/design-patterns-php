@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Structural\Adapter;
 
+use DateTimeImmutable;
+
 class ExternalLogger
 {
     private const FILE_DIR = 'data/log/';
@@ -17,6 +19,6 @@ class ExternalLogger
 
     private function createLogMessage(string $message): string
     {
-        return sprintf("%s: '%s'\n", (new \DateTimeImmutable())->format('H:i'), $message);
+        return sprintf("%s: '%s'\n", (new DateTimeImmutable())->format('H:i'), $message);
     }
 }

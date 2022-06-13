@@ -16,17 +16,18 @@ final class ClientTest extends TestCase
     {
         $clientType = new ClientType(2);
         $client = new Client();
+
         $client->setType($clientType);
 
-        $this->assertEquals($clientType, $client->getType());
-        $this->assertInstanceOf(ClientTypeInterface::class, $client->getType());
+        self::assertEquals($clientType, $client->getType());
+        self::assertInstanceOf(ClientTypeInterface::class, $client->getType());
     }
 
     public function testCanGetTypeWhenIsNull(): void
     {
         $client = new Client();
 
-        $this->assertInstanceOf(NullClientType::class, $client->getType());
-        $this->assertInstanceOf(ClientTypeInterface::class, $client->getType());
+        self::assertInstanceOf(NullClientType::class, $client->getType());
+        self::assertInstanceOf(ClientTypeInterface::class, $client->getType());
     }
 }

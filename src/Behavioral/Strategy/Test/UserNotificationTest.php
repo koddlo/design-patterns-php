@@ -17,8 +17,8 @@ final class UserNotificationTest extends TestCase
 
         $messages = $userNotification->onPasswordExpired($userNotificationPreference);
 
-        $this->assertCount(1, $messages);
-        $this->assertContains(sprintf('Email: %s', UserNotification::PASSWORD_EXPIRE_MESSAGE), $messages);
+        self::assertCount(1, $messages);
+        self::assertContains(sprintf('Email: %s', UserNotification::PASSWORD_EXPIRE_MESSAGE), $messages);
     }
 
     public function testCanNotifyUserBySystemAboutPasswordExpire(): void
@@ -28,8 +28,8 @@ final class UserNotificationTest extends TestCase
 
         $messages = $userNotification->onPasswordExpired($userNotificationPreference);
 
-        $this->assertCount(1, $messages);
-        $this->assertContains(sprintf('System: %s', UserNotification::PASSWORD_EXPIRE_MESSAGE), $messages);
+        self::assertCount(1, $messages);
+        self::assertContains(sprintf('System: %s', UserNotification::PASSWORD_EXPIRE_MESSAGE), $messages);
     }
 
     public function testCanNotifyUserByEmailAndSystemAboutPasswordExpire(): void
@@ -39,9 +39,9 @@ final class UserNotificationTest extends TestCase
 
         $messages = $userNotification->onPasswordExpired($userNotificationPreference);
 
-        $this->assertCount(2, $messages);
-        $this->assertContains(sprintf('Email: %s', UserNotification::PASSWORD_EXPIRE_MESSAGE), $messages);
-        $this->assertContains(sprintf('System: %s', UserNotification::PASSWORD_EXPIRE_MESSAGE), $messages);
+        self::assertCount(2, $messages);
+        self::assertContains(sprintf('Email: %s', UserNotification::PASSWORD_EXPIRE_MESSAGE), $messages);
+        self::assertContains(sprintf('System: %s', UserNotification::PASSWORD_EXPIRE_MESSAGE), $messages);
     }
 
     public function testCannotNotifyUserWithoutPreferenceAboutPasswordExpire(): void
@@ -51,6 +51,6 @@ final class UserNotificationTest extends TestCase
 
         $messages = $userNotification->onPasswordExpired($userNotificationPreference);
 
-        $this->assertCount(0, $messages);
+        self::assertCount(0, $messages);
     }
 }

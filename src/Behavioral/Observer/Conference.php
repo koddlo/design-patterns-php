@@ -4,7 +4,12 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Behavioral\Observer;
 
-class Conference implements \SplSubject
+use DateTimeImmutable;
+use SplObjectStorage;
+use SplObserver;
+use SplSubject;
+
+final class Conference implements SplSubject
 {
     public const TYPE_UNDECIDED = 0;
     public const TYPE_OFFLINE = 1;
@@ -12,33 +17,31 @@ class Conference implements \SplSubject
 
     private string $id;
 
-    private \DateTimeImmutable $date;
-
     private int $type;
 
-    private \SplObjectStorage $observers;
+    private SplObjectStorage $observers;
 
-    public function __construct(\DateTimeImmutable $date)
-    {
+    public function __construct(
+        private DateTimeImmutable $date
+    ) {
         $this->id = uniqid();
-        $this->date = $date;
         $this->type = self::TYPE_UNDECIDED;
-        $this->observers = new \SplObjectStorage();
+        $this->observers = new SplObjectStorage();
     }
 
-    public function attach(\SplObserver $observer): void
+    public function attach(SplObserver $observer): void
     {
         $this->observers->attach($observer);
     }
 
-    public function detach(\SplObserver $observer): void
+    public function detach(SplObserver $observer): void
     {
         $this->observers->detach($observer);
     }
 
     public function notify(): void
     {
-        /** @var \SplObserver $observer */
+        /** @var SplObserver $observer */
         foreach ($this->observers as $observer) {
             $observer->update($this);
         }
@@ -54,35 +57,33 @@ class Conference implements \SplSubject
         return $this->id;
     }
 
-    public function getDate(): \DateTimeImmutable
+    public function getDate(): DateTimeImmutable
     {
         return $this->date;
     }
 
-    public function changeDate(\DateTimeImmutable $date): void
+    public function changeDate(DateTimeImmutable $date): void
     {
         $this->date = $date;
         $this->notify();
     }
 
-    public function offline(): void
+    public function isOnline(): bool
     {
-        if ($this->type !== self::TYPE_UNDECIDED) {
-            throw new InvalidConferenceTypeException();
-        }
-
-        $this->type = self::TYPE_OFFLINE;
-        $this->notify();
+        return self::TYPE_ONLINE === $this->type;
     }
 
     public function isOffline(): bool
     {
-        return $this->type === self::TYPE_OFFLINE;
+        return self::TYPE_OFFLINE === $this->type;
     }
 
+    /**
+     * @throws InvalidConferenceTypeException
+     */
     public function online(): void
     {
-        if ($this->type !== self::TYPE_UNDECIDED) {
+        if (self::TYPE_UNDECIDED !== $this->type) {
             throw new InvalidConferenceTypeException();
         }
 
@@ -90,8 +91,16 @@ class Conference implements \SplSubject
         $this->notify();
     }
 
-    public function isOnline(): bool
+    /**
+     * @throws InvalidConferenceTypeException
+     */
+    public function offline(): void
     {
-        return $this->type === self::TYPE_ONLINE;
+        if (self::TYPE_UNDECIDED !== $this->type) {
+            throw new InvalidConferenceTypeException();
+        }
+
+        $this->type = self::TYPE_OFFLINE;
+        $this->notify();
     }
 }

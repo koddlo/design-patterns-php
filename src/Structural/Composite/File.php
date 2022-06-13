@@ -4,16 +4,14 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Structural\Composite;
 
-class File implements FileSystemElementInterface
+final class File implements FileSystemElementInterface
 {
     private string $id;
 
-    private int $size;
-
-    public function __construct(int $size)
-    {
+    public function __construct(
+        private int $size
+    ) {
         $this->id = uniqid();
-        $this->size = $size;
     }
 
     public function getId(): string

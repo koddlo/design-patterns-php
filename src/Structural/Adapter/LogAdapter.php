@@ -4,14 +4,11 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Structural\Adapter;
 
-class LogAdapter implements LoggerInterface
+final class LogAdapter implements LoggerInterface
 {
-    private ExternalLogger $logger;
-
-    public function __construct(ExternalLogger $logger)
-    {
-        $this->logger = $logger;
-    }
+    public function __construct(
+        private ExternalLogger $logger
+    ) {}
 
     public function log(string $logMessage): void
     {

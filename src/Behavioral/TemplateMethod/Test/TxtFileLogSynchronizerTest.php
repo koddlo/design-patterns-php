@@ -16,9 +16,9 @@ final class TxtFileLogSynchronizerTest extends TestCase
         try {
             $logSynchronizer->synchronize('test_logs.txt');
         } catch (\BadMethodCallException $exception) {
-            $this->assertFalse(true, 'Synchronize action using test_logs.txt does not work.');
+            self::fail('Synchronize action using test_logs.txt does not work.');
         }
 
-        $this->assertTrue(true);
+        self::assertTrue(true);
     }
 }

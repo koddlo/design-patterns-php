@@ -13,12 +13,13 @@ final class CommandInvokerTest extends TestCase
     public function testCanInvokeCommand(): void
     {
         $command = $this->createMock(CommandInterface::class);
+        $invoker = new CommandInvoker();
+        $invoker->setCommand($command);
+
         $command
             ->expects($this->once())
             ->method('execute');
 
-        $invoker = new CommandInvoker();
-        $invoker->setCommand($command);
         $invoker->invoke();
     }
 }

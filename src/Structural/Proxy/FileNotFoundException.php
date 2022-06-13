@@ -4,7 +4,8 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Structural\Proxy;
 
-class FileNotFoundException extends \Exception
-{
+use Exception;
 
+class FileNotFoundException extends Exception
+{
 }

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Creational\Prototype\Test;
 
+use DateTimeInterface;
 use DesignPatterns\Creational\Prototype\City;
 use DesignPatterns\Creational\Prototype\Event;
 use DesignPatterns\Creational\Prototype\EventPrototypeInterface;
@@ -20,14 +21,14 @@ final class EventTest extends TestCase
             ->addInvitation(new Invitation())
             ->addInvitation(new Invitation());
 
-        $this->assertInstanceOf(EventPrototypeInterface::class, $event);
-        $this->assertIsString($event->getId());
-        $this->assertInstanceOf(City::class, $event->getCity());
-        $this->assertInstanceOf(Place::class, $event->getPlace());
-        $this->assertSame(1000000, $event->getBudget());
-        $this->assertInstanceOf(\DateTimeInterface::class, $event->getCreated());
-        $this->assertSame($event, $event->getPlace()->getEvent());
-        $this->assertCount(2, $event->getInvitations());
+        self::assertInstanceOf(EventPrototypeInterface::class, $event);
+        self::assertIsString($event->getId());
+        self::assertInstanceOf(City::class, $event->getCity());
+        self::assertInstanceOf(Place::class, $event->getPlace());
+        self::assertSame(1000000, $event->getBudget());
+        self::assertInstanceOf(DateTimeInterface::class, $event->getCreated());
+        self::assertSame($event, $event->getPlace()->getEvent());
+        self::assertCount(2, $event->getInvitations());
     }
 
     public function testIsConfiguredFineAfterClone(): void
@@ -39,13 +40,13 @@ final class EventTest extends TestCase
 
         $cloneEvent = clone $event;
 
-        $this->assertNotEquals($event, $cloneEvent);
-        $this->assertNotSame($event->getId(), $cloneEvent->getId());
-        $this->assertSame($event->getCity(), $cloneEvent->getCity());
-        $this->assertSame($event->getBudget(), $cloneEvent->getBudget());
-        $this->assertNotSame($event->getCreated(), $cloneEvent->getCreated());
-        $this->assertNotSame($event->getPlace(), $cloneEvent->getPlace());
-        $this->assertNotSame($event, $cloneEvent->getPlace()->getEvent());
-        $this->assertEmpty($cloneEvent->getInvitations());
+        self::assertNotEquals($event, $cloneEvent);
+        self::assertNotSame($event->getId(), $cloneEvent->getId());
+        self::assertSame($event->getCity(), $cloneEvent->getCity());
+        self::assertSame($event->getBudget(), $cloneEvent->getBudget());
+        self::assertNotSame($event->getCreated(), $cloneEvent->getCreated());
+        self::assertNotSame($event->getPlace(), $cloneEvent->getPlace());
+        self::assertNotSame($event, $cloneEvent->getPlace()->getEvent());
+        self::assertEmpty($cloneEvent->getInvitations());
     }
 }

@@ -4,17 +4,12 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Behavioral\Command;
 
-class Like implements CommandInterface
+final class Like implements CommandInterface
 {
-    private Author $author;
-
-    private InteractiveInterface $interactive;
-
-    public function __construct(Author $author, InteractiveInterface $interactive)
-    {
-        $this->author = $author;
-        $this->interactive = $interactive;
-    }
+    public function __construct(
+        private Author $author,
+        private InteractiveInterface $interactive
+    ) {}
 
     public function execute(): void
     {

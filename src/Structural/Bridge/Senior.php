@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Structural\Bridge;
 
-class Senior implements JobLevelInterface
+final class Senior implements JobLevelInterface
 {
     private const AUTHORITY = 7;
 

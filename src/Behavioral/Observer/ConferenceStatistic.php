@@ -4,13 +4,16 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Behavioral\Observer;
 
-class ConferenceStatistic implements \SplObserver
+use SplObserver;
+use SplSubject;
+
+final class ConferenceStatistic implements SplObserver
 {
     private int $onlineAmount = 0;
 
     private int $offlineAmount = 0;
 
-    public function update(\SplSubject $subject): void
+    public function update(SplSubject $subject): void
     {
         if ($subject->isOffline()) {
             ++$this->offlineAmount;
@@ -20,8 +23,6 @@ class ConferenceStatistic implements \SplObserver
 
         if ($subject->isOnline()) {
             ++$this->onlineAmount;
-
-            return;
         }
     }
 

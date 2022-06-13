@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Creational\Prototype;
 
-class Place
+final class Place
 {
     private string $id;
 

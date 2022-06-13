@@ -19,14 +19,13 @@ final class NotificationFacadeTest extends TestCase
         $phoneNumber = '123456789';
         $user = new User('test@koddlo.pl');
         $user->setPhoneNumber($phoneNumber);
-
         $notificationFacade = new NotificationFacade(
             new CloudApiSender($this->createMock(CloudClientInterface::class)),
             new SmtpSender(),
             new SmsNotifier()
         );
 
-        $this->assertSame($notificationFacade->send($user), "SMS: $phoneNumber");
+        self::assertSame($notificationFacade->send($user), "SMS: $phoneNumber");
     }
 
     public function testCanSendEmailByCloudIfUserHasAccount(): void
@@ -38,14 +37,13 @@ final class NotificationFacadeTest extends TestCase
             ->method('hasAccount')
             ->with($email)
             ->willReturn(true);
-
         $notificationFacade = new NotificationFacade(
             new CloudApiSender($cloudClient),
             new SmtpSender(),
             new SmsNotifier()
         );
 
-        $this->assertSame($notificationFacade->send($user), "Email (Cloud): $email");
+        self::assertSame($notificationFacade->send($user), "Email (Cloud): $email");
     }
 
     public function testIsEmailSendBySmtpIfUserDoesNotHaveCloudAccount(): void
@@ -57,13 +55,12 @@ final class NotificationFacadeTest extends TestCase
             ->method('hasAccount')
             ->with($email)
             ->willReturn(false);
-
         $notificationFacade = new NotificationFacade(
             new CloudApiSender($cloudClient),
             new SmtpSender(),
             new SmsNotifier()
         );
 
-        $this->assertSame($notificationFacade->send($user), "Email (SMTP): $email");
+        self::assertSame($notificationFacade->send($user), "Email (SMTP): $email");
     }
 }

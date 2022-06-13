@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Behavioral\Strategy;
 
-class UserNotification
+final class UserNotification
 {
     public const PASSWORD_EXPIRE_MESSAGE = 'Your password will expire in 3 days. Please change it as soon as possible.';
 

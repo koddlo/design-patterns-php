@@ -12,7 +12,7 @@ final class DirectoryTest extends TestCase
 {
     public function testCanGetSizeOfEmptyDirectory(): void
     {
-        $this->assertSame(0, (new Directory())->getSize());
+        self::assertSame(0, (new Directory())->getSize());
     }
 
     public function testCanGetSizeOfDirectoryThatContainsOnlyFiles(): void
@@ -22,25 +22,24 @@ final class DirectoryTest extends TestCase
         $directory->addElement(new File(12));
         $directory->addElement(new File(8));
 
-        $this->assertSame(20, $directory->getSize());
+        self::assertSame(20, $directory->getSize());
     }
 
     public function testCanGetSizeOfDirectoryThatContainsDirectoriesAndFiles(): void
     {
         $firstChildDirectory = new Directory();
-        $firstChildDirectory->addElement(new File(12));
-
         $secondChildDirectory = new Directory();
+        $parentDirectory = new Directory();
+
+        $firstChildDirectory->addElement(new File(12));
         $secondChildDirectory->addElement(new File(12));
         $secondChildDirectory->addElement(new File(24));
         $secondChildDirectory->addElement(new File(12));
-
-        $parentDirectory = new Directory();
         $parentDirectory->addElement(new File(16));
         $parentDirectory->addElement(new File(24));
         $parentDirectory->addElement($firstChildDirectory);
         $parentDirectory->addElement($secondChildDirectory);
 
-        $this->assertSame(100, $parentDirectory->getSize());
+        self::assertSame(100, $parentDirectory->getSize());
     }
 }

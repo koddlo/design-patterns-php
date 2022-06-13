@@ -19,17 +19,17 @@ final class ChainTest extends TestCase
         $isNotLessThan10 = 'Test10test';
         $isNotGreaterThan5 = 'Test5';
         $isValid = 'Valid!';
-
         $chainValidation = new IsNotNull();
+
         $chainValidation
             ->next(new IsString())
             ->next(new IsLessThan(10))
             ->next(new IsGreaterThan(5));
 
-        $this->assertFalse($chainValidation->validate($isNull));
-        $this->assertFalse($chainValidation->validate($isNotString));
-        $this->assertFalse($chainValidation->validate($isNotLessThan10));
-        $this->assertFalse($chainValidation->validate($isNotGreaterThan5));
-        $this->assertTrue($chainValidation->validate($isValid));
+        self::assertFalse($chainValidation->validate($isNull));
+        self::assertFalse($chainValidation->validate($isNotString));
+        self::assertFalse($chainValidation->validate($isNotLessThan10));
+        self::assertFalse($chainValidation->validate($isNotGreaterThan5));
+        self::assertTrue($chainValidation->validate($isValid));
     }
 }

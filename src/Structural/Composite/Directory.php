@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Structural\Composite;
 
-class Directory implements FileSystemElementInterface
+final class Directory implements FileSystemElementInterface
 {
     private string $id;
 

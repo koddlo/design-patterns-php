@@ -4,16 +4,13 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Structural\Proxy;
 
-class FileEncoderProxy implements Base64EncodingInterface
+final class FileEncoderProxy implements Base64EncodingInterface
 {
     private array $cache = [];
 
-    private FileEncoder $fileEncoder;
-
-    public function __construct(FileEncoder $fileEncoder)
-    {
-        $this->fileEncoder = $fileEncoder;
-    }
+    public function __construct(
+        private FileEncoder $fileEncoder
+    ) {}
 
     public function encodeBase64(string $path): string
     {

@@ -15,20 +15,20 @@ final class LogAdapterTest extends TestCase
     {
         $logAdapter = new LogAdapter(new ExternalLogger());
 
-        $this->assertInstanceOf(LoggerInterface::class, $logAdapter);
+        self::assertInstanceOf(LoggerInterface::class, $logAdapter);
     }
 
     public function testCanLogIntoFile(): void
     {
         $message = 'Test log message';
-
         $externalLogger = $this->createMock(ExternalLogger::class);
+        $logAdapter = new LogAdapter($externalLogger);
+
         $externalLogger
             ->expects($this->once())
             ->method('saveLogIntoFile')
             ->with($message);
 
-        $logAdapter = new LogAdapter($externalLogger);
         $logAdapter->log($message);
     }
 }

@@ -4,7 +4,9 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Structural\Iterator;
 
-class FileSystemElementCollection implements \Iterator
+use Iterator;
+
+final class FileSystemElementCollection implements Iterator
 {
     private array $elements = [];
 

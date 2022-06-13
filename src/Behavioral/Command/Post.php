@@ -4,17 +4,14 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Behavioral\Command;
 
-class Post implements InteractiveInterface
+final class Post implements InteractiveInterface
 {
     public const LIKE_SLUG = 'like';
     public const WOW_SLUG = 'wow';
 
-    private array $reactionStatistics;
-
-    public function __construct()
-    {
-        $this->reactionStatistics = [];
-    }
+    public function __construct(
+        private array $reactionStatistics = []
+    ) {}
 
     public function like(string $authorId): void
     {

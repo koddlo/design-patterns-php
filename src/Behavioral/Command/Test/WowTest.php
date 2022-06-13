@@ -18,10 +18,6 @@ final class WowTest extends TestCase
 
         $command->execute();
 
-        $this->assertSame(1, $interactive->countWows());
-
-        $command->execute();
-
-        $this->assertSame(0, $interactive->countWows());
+        self::assertSame(1, $interactive->countWows());
     }
 }

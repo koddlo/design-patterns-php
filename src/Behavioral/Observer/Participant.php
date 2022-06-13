@@ -4,7 +4,11 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Behavioral\Observer;
 
-class Participant implements \SplObserver
+use DateTimeImmutable;
+use SplObserver;
+use SplSubject;
+
+final class Participant implements SplObserver
 {
     private array $calendar;
 
@@ -13,7 +17,7 @@ class Participant implements \SplObserver
         $this->calendar = [];
     }
 
-    public function update(\SplSubject $subject): void
+    public function update(SplSubject $subject): void
     {
         $conferenceId = $subject->getId();
         $conferenceDate = $subject->getDate();
@@ -30,17 +34,17 @@ class Participant implements \SplObserver
         return $this->calendar;
     }
 
-    private function book(string $conferenceId, \DateTimeImmutable $conferenceDate)
+    private function book(string $conferenceId, DateTimeImmutable $conferenceDate): void
     {
         $this->calendar[$conferenceId] = $conferenceDate->format('d.m.Y');
     }
 
-    private function cancel(string $conferenceId)
+    private function cancel(string $conferenceId): void
     {
         unset($this->calendar[$conferenceId]);
     }
 
-    private function isDateFree(string $conferenceId, \DateTimeImmutable $date): bool
+    private function isDateFree(string $conferenceId, DateTimeImmutable $date): bool
     {
         return !in_array($date->format('d.m.Y'), $this->calendar)
             || (isset($this->calendar[$conferenceId]) && $this->calendar[$conferenceId] === $date->format('d.m.Y'));

@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Creational\Builder;
 
-class B2BContractBuilder implements AgreementBuilderInterface
+final class B2BContractBuilder implements AgreementBuilderInterface
 {
     private AbstractAgreement $b2BContract;
 
@@ -16,18 +16,21 @@ class B2BContractBuilder implements AgreementBuilderInterface
     public function addHeader(): AgreementBuilderInterface
     {
         $this->b2BContract->setTitle('Services Contract');
+
         return $this;
     }
 
     public function addSalary(int $salary): AgreementBuilderInterface
     {
         $this->b2BContract->setSalary($salary);
+
         return $this;
     }
 
     public function addContactDetails(string $contactDetails): AgreementBuilderInterface
     {
         $this->b2BContract->setContactDetails(sprintf('Company: %s', $contactDetails));
+
         return $this;
     }
 

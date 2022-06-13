@@ -9,23 +9,13 @@ use DesignPatterns\Structural\Facade\EmailModule\CloudApiSender;
 use DesignPatterns\Structural\Facade\EmailModule\SmtpSender;
 use DesignPatterns\Structural\Facade\SmsModule\SmsNotifier;
 
-class NotificationFacade
+final class NotificationFacade
 {
-    private CloudApiSender $cloudEmailSender;
-
-    private SmtpSender $smtpEmailSender;
-
-    private SmsNotifier $smsNotifier;
-
     public function __construct(
-        CloudApiSender $cloudEmailSender,
-        SmtpSender $smtpEmailSender,
-        SmsNotifier $smsNotifier
-    ) {
-        $this->cloudEmailSender = $cloudEmailSender;
-        $this->smtpEmailSender = $smtpEmailSender;
-        $this->smsNotifier = $smsNotifier;
-    }
+        private CloudApiSender $cloudEmailSender,
+        private SmtpSender $smtpEmailSender,
+        private SmsNotifier $smsNotifier
+    ) {}
 
     public function send(User $user): string
     {

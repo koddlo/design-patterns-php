@@ -4,34 +4,33 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Creational\Prototype;
 
-class Event implements EventPrototypeInterface
+use DateTimeImmutable;
+use DateTimeInterface;
+
+final class Event implements EventPrototypeInterface
 {
     private string $id;
 
-    private City $city;
-
-    private Place $place;
-
     private int $budget = 0;
 
-    private \DateTimeImmutable $created;
+    private DateTimeImmutable $created;
 
     private array $invitations;
 
-    public function __construct(City $city, Place $place)
-    {
+    public function __construct(
+        private City $city,
+        private Place $place
+    ) {
         $this->id = uniqid();
-        $this->city = $city;
-        $this->place = $place;
         $place->setEvent($this);
-        $this->created = new \DateTimeImmutable();
+        $this->created = new DateTimeImmutable();
         $this->invitations = [];
     }
 
     public function __clone()
     {
         $this->id = uniqid();
-        $this->created = new \DateTimeImmutable();
+        $this->created = new DateTimeImmutable();
         $this->place = clone $this->place;
         $this->place->setEvent($this);
         $this->invitations = [];
@@ -60,10 +59,11 @@ class Event implements EventPrototypeInterface
     public function setBudget(int $budget): Event
     {
         $this->budget = $budget;
+
         return $this;
     }
 
-    public function getCreated(): \DateTimeInterface
+    public function getCreated(): DateTimeInterface
     {
         return $this->created;
     }
@@ -76,6 +76,7 @@ class Event implements EventPrototypeInterface
     public function addInvitation(Invitation $invitation): Event
     {
         $this->invitations[$invitation->getId()] = $invitation;
+
         return $this;
     }
 }

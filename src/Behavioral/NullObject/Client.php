@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Behavioral\NullObject;
 
-class Client
+final class Client
 {
-    private ?ClientType $type;
+    private ?ClientTypeInterface $type;
 
-    public function setType(?ClientType $type): void
+    public function setType(?ClientTypeInterface $type): void
     {
         $this->type = $type;
     }

@@ -16,9 +16,9 @@ final class CsvFileLogSynchronizerTest extends TestCase
         try {
             $logSynchronizer->synchronize('test_logs.csv');
         } catch (\BadMethodCallException $exception) {
-            $this->assertFalse(true, 'Synchronize action using test_logs.csv does not work.');
+            self::fail('Synchronize action using test_logs.csv does not work.');
         }
 
-        $this->assertTrue(true);
+        self::assertTrue(true);
     }
 }

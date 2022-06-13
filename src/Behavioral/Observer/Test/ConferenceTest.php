@@ -4,64 +4,76 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Behavioral\Observer\Test;
 
+use DateTimeImmutable;
 use DesignPatterns\Behavioral\Observer\Conference;
 use DesignPatterns\Behavioral\Observer\InvalidConferenceTypeException;
 use PHPUnit\Framework\TestCase;
+use SplObserver;
 
 final class ConferenceTest extends TestCase
 {
     public function testCanNotifyAttachedObserver(): void
     {
-        $conference = new Conference(new \DateTimeImmutable());
-        $splObserverMock = $this->createMock(\SplObserver::class);
+        $conference = new Conference(new DateTimeImmutable());
+        $splObserverMock = $this->createMock(SplObserver::class);
+        $conference->attach($splObserverMock);
+
         $splObserverMock
             ->expects($this->once())
             ->method('update');
 
-        $conference->attach($splObserverMock);
         $conference->notify();
     }
 
     public function testCannotNotifyDetachedObserver(): void
     {
-        $conference = new Conference(new \DateTimeImmutable());
-        $splObserverMock = $this->createMock(\SplObserver::class);
+        $conference = new Conference(new DateTimeImmutable());
+        $splObserverMock = $this->createMock(SplObserver::class);
+        $conference->attach($splObserverMock);
+        $conference->detach($splObserverMock);
+
         $splObserverMock
             ->expects($this->never())
             ->method('update');
 
-        $conference->attach($splObserverMock);
-        $conference->detach($splObserverMock);
         $conference->notify();
     }
 
-    public function testCanChangeTypeToOnlineOnlyIfIsUndecided(): void
+    public function testCanChangeTypeToOnlineIfIsUndecided(): void
     {
-        $conferenceUndecided = new Conference(new \DateTimeImmutable());
-        $conferenceOffline = (new Conference(new \DateTimeImmutable()));
-        $conferenceOffline->offline();
+        $conferenceUndecided = new Conference(new DateTimeImmutable());
 
         $conferenceUndecided->online();
 
-        $this->assertTrue($conferenceUndecided->isOnline());
+        self::assertTrue($conferenceUndecided->isOnline());
+    }
 
-        $this->expectException(InvalidConferenceTypeException::class);
+    public function testCannotChangeTypeToOnlineIfIsNotUndecided(): void
+    {
+        $conferenceOffline = (new Conference(new DateTimeImmutable()));
+        $conferenceOffline->offline();
+
+        self::expectException(InvalidConferenceTypeException::class);
 
         $conferenceOffline->online();
     }
 
-    public function testCanChangeTypeToOfflineOnlyIfIsUndecided(): void
+    public function testCannotChangeTypeToOfflineIfIsNotUndecided(): void
     {
-        $conferenceUndecided = new Conference(new \DateTimeImmutable());
-        $conferenceOnline = (new Conference(new \DateTimeImmutable()));
+        $conferenceOnline = (new Conference(new DateTimeImmutable()));
         $conferenceOnline->online();
+
+        self::expectException(InvalidConferenceTypeException::class);
+
+        $conferenceOnline->offline();
+    }
+
+    public function testCanChangeTypeToOfflineIfIsUndecided(): void
+    {
+        $conferenceUndecided = new Conference(new DateTimeImmutable());
 
         $conferenceUndecided->offline();
 
-        $this->assertTrue($conferenceUndecided->isOffline());
-
-        $this->expectException(InvalidConferenceTypeException::class);
-
-        $conferenceOnline->offline();
+        self::assertTrue($conferenceUndecided->isOffline());
     }
 }

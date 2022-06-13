@@ -17,7 +17,7 @@ final class TrainingBudgetTest extends TestCase
 
         $trainingBudget = new TrainingBudget(new Junior());
 
-        $this->assertSame($trainingBudgetJuniorGrant, $trainingBudget->calculateGrant());
+        self::assertSame($trainingBudgetJuniorGrant, $trainingBudget->calculateGrant());
     }
 
     public function testCalculatingGrantForSenior(): void
@@ -26,6 +26,6 @@ final class TrainingBudgetTest extends TestCase
 
         $trainingBudget = new TrainingBudget(new Senior());
 
-        $this->assertSame($trainingBudgetSeniorGrant, $trainingBudget->calculateGrant());
+        self::assertSame($trainingBudgetSeniorGrant, $trainingBudget->calculateGrant());
     }
 }

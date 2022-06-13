@@ -12,7 +12,7 @@ class FileSystemElementCollectionTest extends TestCase
 {
     public function testIsCurrentElementNullOfEmptyCollection(): void
     {
-        $this->assertNull((new FileSystemElementCollection())->current());
+        self::assertNull((new FileSystemElementCollection())->current());
     }
 
     public function testCanGoForNextElementOfCollection(): void
@@ -25,18 +25,18 @@ class FileSystemElementCollectionTest extends TestCase
 
         $collection->next();
 
-        $this->assertSame($directoryTwo, $collection->current());
+        self::assertSame($directoryTwo, $collection->current());
     }
 
 
     public function testIsCurrentKeyElementNullOfEmptyCollection(): void
     {
-        $this->assertNull((new FileSystemElementCollection())->key());
+        self::assertNull((new FileSystemElementCollection())->key());
     }
 
     public function testIsCurrentPositionOfEmptyCollectionInvalid(): void
     {
-        $this->assertFalse((new FileSystemElementCollection())->valid());
+        self::assertFalse((new FileSystemElementCollection())->valid());
     }
 
     public function testIsCurrentPositionOfFullCollectionValid(): void
@@ -44,7 +44,7 @@ class FileSystemElementCollectionTest extends TestCase
         $collection = new FileSystemElementCollection();
         $collection->add(new Directory());
 
-        $this->assertTrue($collection->valid());
+        self::assertTrue($collection->valid());
     }
 
     public function testCanRewindEmptyCollection(): void
@@ -53,7 +53,7 @@ class FileSystemElementCollectionTest extends TestCase
 
         $collection->rewind();
 
-        $this->assertFalse($collection->valid());
+        self::assertFalse($collection->valid());
     }
 
     public function testCanRewindFullCollection(): void
@@ -67,6 +67,6 @@ class FileSystemElementCollectionTest extends TestCase
         $collection->next();
         $collection->rewind();
 
-        $this->assertSame($directoryOne, $collection->current());
+        self::assertSame($directoryOne, $collection->current());
     }
 }

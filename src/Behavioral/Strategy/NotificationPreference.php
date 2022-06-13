@@ -4,17 +4,12 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Behavioral\Strategy;
 
-class NotificationPreference
+final class NotificationPreference
 {
-    private bool $email;
-
-    private bool $system;
-
-    public function __construct(bool $email, bool $system)
-    {
-        $this->email = $email;
-        $this->system = $system;
-    }
+    public function __construct(
+        private bool $email,
+        private bool $system
+    ) {}
 
     public function shouldNotifyByEmail(): bool
     {

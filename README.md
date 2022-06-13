@@ -27,6 +27,7 @@ Behavioral:
 - [Chain Of Responsibility](https://koddlo.pl/chain-of-responsibility-lancuch-zobowiazan/)
 - [Command](https://koddlo.pl/command-polecenie/)
 - [Iterator](https://koddlo.pl/iterator/)
+- [Memento](https://koddlo.pl/memento-pamiatka/)
 - [Null Object](https://koddlo.pl/null-object-pusty-obiekt/)
 - [Observer](https://koddlo.pl/observer-obserwator/)
 - [Strategy](https://koddlo.pl/strategy-strategia/)

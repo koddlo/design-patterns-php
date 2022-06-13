@@ -4,14 +4,11 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Structural\Facade\EmailModule;
 
-class CloudApiSender
+final class CloudApiSender
 {
-    private CloudClientInterface $cloudClient;
-
-    public function __construct(CloudClientInterface $cloudClient)
-    {
-        $this->cloudClient = $cloudClient;
-    }
+    public function __construct(
+        private CloudClientInterface $cloudClient
+    ) {}
 
     /** @throws UserNotFoundException */
     public function send(string $email): string

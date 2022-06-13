@@ -16,10 +16,10 @@ final class PackageTest extends TestCase
 
         $package->increaseWeight(25.00);
 
-        $this->assertSame(50.00, $package->snapshot()->getWeight());
+        self::assertSame(50.00, $package->snapshot()->weight);
     }
 
-    public function canMakeSnapshot(): void
+    public function testCanMakeSnapshot(): void
     {
         $width = 8.00;
         $height = 38.00;
@@ -29,52 +29,52 @@ final class PackageTest extends TestCase
 
         $snapshot = $package->snapshot();
 
-        $this->assertSame($width, $snapshot->getWidth());
-        $this->assertSame($height, $snapshot->getHeight());
-        $this->assertSame($length, $snapshot->getLength());
-        $this->assertSame($weight, $snapshot->getWeight());
+        self::assertSame($width, $snapshot->width);
+        self::assertSame($height, $snapshot->height);
+        self::assertSame($length, $snapshot->length);
+        self::assertSame($weight, $snapshot->weight);
     }
 
 
-    public function canRestoreFromSnapshot(): void
+    public function testCanRestoreFromSnapshot(): void
     {
         $snapshot = new PackageSnapshot(8.00, 38.00, 68.00, 25.00);
 
-        $this->assertInstanceOf(Package::class, Package::restore($snapshot));
+        self::assertInstanceOf(Package::class, Package::restore($snapshot));
     }
 
     public function testIsSmall(): void
     {
         $package = new Package(8.00, 38.00, 68.00, 25.00);
 
-        $this->assertTrue($package->isSmall());
+        self::assertTrue($package->isSmall());
     }
 
     public function testIsNotSmallWhenWidthIsToBig(): void
     {
         $package = new Package(8.01, 1.00, 1.00, 1.00);
 
-        $this->assertFalse($package->isSmall());
+        self::assertFalse($package->isSmall());
     }
 
     public function testIsNotSmallWhenHeightIsToBig(): void
     {
         $package = new Package(1.00, 38.01, 1.00, 1.00);
 
-        $this->assertFalse($package->isSmall());
+        self::assertFalse($package->isSmall());
     }
 
     public function testIsNotSmallWhenLengthIsToBig(): void
     {
         $package = new Package(1.00, 1.00, 68.01, 1.00);
 
-        $this->assertFalse($package->isSmall());
+        self::assertFalse($package->isSmall());
     }
 
     public function testIsNotSmallWhenWeightIsToBig(): void
     {
         $package = new Package(1.00, 1.00, 1.00, 25.01);
 
-        $this->assertFalse($package->isSmall());
+        self::assertFalse($package->isSmall());
     }
 }

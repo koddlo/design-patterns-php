@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Creational\Prototype;
 
-class City
+final class City
 {
     private string $id;
 

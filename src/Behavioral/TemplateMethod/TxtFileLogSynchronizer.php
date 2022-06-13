@@ -4,13 +4,10 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Behavioral\TemplateMethod;
 
-class TxtFileLogSynchronizer extends AbstractFileLogSynchronizer
-{
-    public function __construct(LogRepositoryInterface $logRepository)
-    {
-        parent::__construct($logRepository);
-    }
+use DateTimeImmutable;
 
+final class TxtFileLogSynchronizer extends AbstractFileLogSynchronizer
+{
     protected function readFromFile(string $filePath): array
     {
         $unprocessedLogs = [];
@@ -30,9 +27,8 @@ class TxtFileLogSynchronizer extends AbstractFileLogSynchronizer
     {
         $logs = [];
         foreach ($unprocessedLogs as $unprocessedLog) {
-            $logDate = \DateTimeImmutable::createFromFormat('d.m.Y H:i', $unprocessedLog['date']);
-
-            if ($logDate === false) {
+            $logDate = DateTimeImmutable::createFromFormat('d.m.Y H:i', $unprocessedLog['date']);
+            if (false === $logDate) {
                 continue;
             }
 

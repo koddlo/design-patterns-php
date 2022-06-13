@@ -17,15 +17,15 @@ final class VegetarianMealFactoryTest extends TestCase
     {
         $meal = (new VegetarianMealFactory())->createBreakfast();
 
-        $this->assertInstanceOf(VegetarianBreakfast::class, $meal);
-        $this->assertInstanceOf(BreakfastInterface::class, $meal);
+        self::assertInstanceOf(VegetarianBreakfast::class, $meal);
+        self::assertInstanceOf(BreakfastInterface::class, $meal);
     }
 
     public function testCanCreateVegetarianDinner(): void
     {
         $meal = (new VegetarianMealFactory())->createDinner();
 
-        $this->assertInstanceOf(VegetarianDinner::class, $meal);
-        $this->assertInstanceOf(DinnerInterface::class, $meal);
+        self::assertInstanceOf(VegetarianDinner::class, $meal);
+        self::assertInstanceOf(DinnerInterface::class, $meal);
     }
 }

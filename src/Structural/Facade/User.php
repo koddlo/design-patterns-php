@@ -4,16 +4,13 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Structural\Facade;
 
-class User
+final class User
 {
-    private string $email;
-
     private ?string $phoneNumber = null;
 
-    public function __construct(string $email)
-    {
-        $this->email = $email;
-    }
+    public function __construct(
+        private string $email
+    ) {}
 
     public function setPhoneNumber(?string $phoneNumber): void
     {

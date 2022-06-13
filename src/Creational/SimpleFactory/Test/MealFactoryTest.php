@@ -9,6 +9,7 @@ use DesignPatterns\Creational\SimpleFactory\VeganMeal;
 use DesignPatterns\Creational\SimpleFactory\MealFactory;
 use DesignPatterns\Creational\SimpleFactory\MealInterface;
 use DesignPatterns\Creational\SimpleFactory\MealType;
+use InvalidArgumentException;
 use PHPUnit\Framework\TestCase;
 
 final class MealFactoryTest extends TestCase
@@ -16,27 +17,28 @@ final class MealFactoryTest extends TestCase
     public function testCanCreateVegetarianMeal(): void
     {
         $mealType = new MealType(MealType::TYPE_VEGETARIAN);
+
         $meal = (new MealFactory())->create($mealType);
 
-        $this->assertInstanceOf(MealInterface::class, $meal);
-        $this->assertInstanceOf(VegetarianMeal::class, $meal);
+        self::assertInstanceOf(MealInterface::class, $meal);
+        self::assertInstanceOf(VegetarianMeal::class, $meal);
     }
 
     public function testCanCreateVeganMeal(): void
     {
         $mealType = new MealType(MealType::TYPE_VEGAN);
+
         $meal = (new MealFactory())->create($mealType);
 
-        $this->assertInstanceOf(MealInterface::class, $meal);
-        $this->assertInstanceOf(VeganMeal::class, $meal);
+        self::assertInstanceOf(MealInterface::class, $meal);
+        self::assertInstanceOf(VeganMeal::class, $meal);
     }
 
     public function testCannotCreateMealOfNonExistentType(): void
     {
         $mealType = new MealType('Paleo');
 
-        $this->expectException(\InvalidArgumentException::class);
-        $this->expectExceptionMessage('That type of meal does not exist');
+        self::expectException(InvalidArgumentException::class);
 
         (new MealFactory())->create($mealType);
     }

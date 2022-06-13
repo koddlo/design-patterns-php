@@ -18,7 +18,7 @@ final class OptionDecoratorTest extends TestCase
         $ticket = new Ticket();
         $option = new Mascot($ticket);
 
-        $this->assertSame($ticket->calculatePrice() + Mascot::PRICE, $option->calculatePrice());
+        self::assertSame($ticket->calculatePrice() + Mascot::PRICE, $option->calculatePrice());
     }
 
     public function testCanDecorateWithAccommodation(): void
@@ -26,7 +26,7 @@ final class OptionDecoratorTest extends TestCase
         $ticket = new Ticket();
         $option = new Accommodation($ticket);
 
-        $this->assertSame($ticket->calculatePrice() + Accommodation::PRICE, $option->calculatePrice());
+        self::assertSame($ticket->calculatePrice() + Accommodation::PRICE, $option->calculatePrice());
     }
 
     public function testCanDecorateWithSticker(): void
@@ -34,7 +34,7 @@ final class OptionDecoratorTest extends TestCase
         $ticket = new Ticket();
         $option = new Sticker($ticket);
 
-        $this->assertSame($ticket->calculatePrice() + Sticker::PRICE, $option->calculatePrice());
+        self::assertSame($ticket->calculatePrice() + Sticker::PRICE, $option->calculatePrice());
     }
 
     public function testCanDecorateWithCatering(): void
@@ -42,7 +42,7 @@ final class OptionDecoratorTest extends TestCase
         $ticket = new Ticket();
         $option = new Catering($ticket);
 
-        $this->assertSame($ticket->calculatePrice() + Catering::PRICE, $option->calculatePrice());
+        self::assertSame($ticket->calculatePrice() + Catering::PRICE, $option->calculatePrice());
     }
 
     public function testCanDecorateFullOption(): void
@@ -52,12 +52,11 @@ final class OptionDecoratorTest extends TestCase
         $option = new Accommodation($option);
         $option = new Sticker($option);
         $option = new Catering($option);
-
         $fullPrice = $ticket->calculatePrice()
             + Mascot::PRICE
             + Accommodation::PRICE
             + Sticker::PRICE + Catering::PRICE;
 
-        $this->assertSame($fullPrice, $option->calculatePrice());
+        self::assertSame($fullPrice, $option->calculatePrice());
     }
 }

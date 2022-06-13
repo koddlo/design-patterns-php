@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Structural\Bridge;
 
-class Junior implements JobLevelInterface
+final class Junior implements JobLevelInterface
 {
     private const AUTHORITY = 3;
 

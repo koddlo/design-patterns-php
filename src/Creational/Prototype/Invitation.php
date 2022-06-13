@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Creational\Prototype;
 
-class Invitation
+final class Invitation
 {
     private string $id;
 

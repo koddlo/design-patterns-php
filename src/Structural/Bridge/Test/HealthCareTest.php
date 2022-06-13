@@ -17,7 +17,7 @@ final class HealthCareTest extends TestCase
 
         $healthCare = new HealthCare(new Junior());
 
-        $this->assertSame($healthCareJuniorGrant, $healthCare->calculateGrant());
+        self::assertSame($healthCareJuniorGrant, $healthCare->calculateGrant());
     }
 
     public function testCalculatingGrantForSenior(): void
@@ -26,6 +26,6 @@ final class HealthCareTest extends TestCase
 
         $healthCare = new HealthCare(new Senior());
 
-        $this->assertSame($healthCareSeniorGrant, $healthCare->calculateGrant());
+        self::assertSame($healthCareSeniorGrant, $healthCare->calculateGrant());
     }
 }

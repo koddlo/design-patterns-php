@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Structural\Decorator;
 
-class Ticket implements OptionInterface
+final class Ticket implements OptionInterface
 {
     public function calculatePrice(): float
     {

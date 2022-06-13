@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Behavioral\Strategy;
 
-class EmailNotifier implements NotifyInterface
+final class EmailNotifier implements NotifyInterface
 {
     public function notify(string $message): string
     {

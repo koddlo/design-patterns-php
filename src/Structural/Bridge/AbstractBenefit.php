@@ -6,12 +6,9 @@ namespace DesignPatterns\Structural\Bridge;
 
 abstract class AbstractBenefit
 {
-    protected JobLevelInterface $level;
-
-    public function __construct(JobLevelInterface $level)
-    {
-        $this->level = $level;
-    }
+    public function __construct(
+        protected JobLevelInterface $level
+    ) {}
 
     abstract public function calculateGrant(): float;
 }

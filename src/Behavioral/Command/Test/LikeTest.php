@@ -18,10 +18,6 @@ final class LikeTest extends TestCase
 
         $command->execute();
 
-        $this->assertSame(1, $interactive->countLikes());
-
-        $command->execute();
-
-        $this->assertSame(0, $interactive->countLikes());
+        self::assertSame(1, $interactive->countLikes());
     }
 }

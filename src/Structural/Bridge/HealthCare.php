@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Structural\Bridge;
 
-class HealthCare extends AbstractBenefit
+final class HealthCare extends AbstractBenefit
 {
     private const MAX_GRANT = 1200;
 
