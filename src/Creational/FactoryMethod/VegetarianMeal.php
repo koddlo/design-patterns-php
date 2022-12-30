@@ -6,7 +6,7 @@ namespace DesignPatterns\Creational\FactoryMethod;
 
 final class VegetarianMeal implements MealInterface
 {
-    public function containsAnimalProducts(): bool
+    public function containsAnimalProducts(): true
     {
         return true;
     }

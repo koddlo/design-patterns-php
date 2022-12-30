@@ -6,10 +6,10 @@ namespace DesignPatterns\Behavioral\TemplateMethod;
 
 use DateTimeImmutable;
 
-final class Log
+final readonly class Log
 {
     public function __construct(
-        public readonly DateTimeImmutable $date,
-        public readonly string $message
+        public DateTimeImmutable $date,
+        public string $message
     ) {}
 }

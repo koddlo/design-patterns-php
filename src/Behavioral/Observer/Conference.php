@@ -11,13 +11,9 @@ use SplSubject;
 
 final class Conference implements SplSubject
 {
-    public const TYPE_UNDECIDED = 0;
-    public const TYPE_OFFLINE = 1;
-    public const TYPE_ONLINE = 2;
-
     private string $id;
 
-    private int $type;
+    private Type $type;
 
     private SplObjectStorage $observers;
 
@@ -25,7 +21,7 @@ final class Conference implements SplSubject
         private DateTimeImmutable $date
     ) {
         $this->id = uniqid();
-        $this->type = self::TYPE_UNDECIDED;
+        $this->type = Type::UNDECIDED;
         $this->observers = new SplObjectStorage();
     }
 
@@ -70,12 +66,12 @@ final class Conference implements SplSubject
 
     public function isOnline(): bool
     {
-        return self::TYPE_ONLINE === $this->type;
+        return Type::ONLINE === $this->type;
     }
 
     public function isOffline(): bool
     {
-        return self::TYPE_OFFLINE === $this->type;
+        return Type::OFFLINE === $this->type;
     }
 
     /**
@@ -83,11 +79,11 @@ final class Conference implements SplSubject
      */
     public function online(): void
     {
-        if (self::TYPE_UNDECIDED !== $this->type) {
+        if (Type::UNDECIDED !== $this->type) {
             throw new InvalidConferenceTypeException();
         }
 
-        $this->type = self::TYPE_ONLINE;
+        $this->type = Type::ONLINE;
         $this->notify();
     }
 
@@ -96,11 +92,11 @@ final class Conference implements SplSubject
      */
     public function offline(): void
     {
-        if (self::TYPE_UNDECIDED !== $this->type) {
+        if (Type::UNDECIDED !== $this->type) {
             throw new InvalidConferenceTypeException();
         }
 
-        $this->type = self::TYPE_OFFLINE;
+        $this->type = Type::OFFLINE;
         $this->notify();
     }
 }

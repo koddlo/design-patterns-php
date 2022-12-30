@@ -15,6 +15,10 @@ final class ConferenceStatistic implements SplObserver
 
     public function update(SplSubject $subject): void
     {
+        if (! $subject instanceof Conference) {
+            return;
+        }
+
         if ($subject->isOffline()) {
             ++$this->offlineAmount;
 
@@ -24,11 +28,6 @@ final class ConferenceStatistic implements SplObserver
         if ($subject->isOnline()) {
             ++$this->onlineAmount;
         }
-    }
-
-    public function countOffline(): int
-    {
-        return $this->offlineAmount;
     }
 
     public function countOnline(): int

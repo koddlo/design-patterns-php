@@ -6,7 +6,7 @@ namespace DesignPatterns\Creational\AbstractFactory;
 
 final class VegetarianBreakfast implements BreakfastInterface
 {
-    public function shouldAddVitaminB12Supplement(): bool
+    public function shouldAddVitaminB12Supplement(): false
     {
         return false;
     }

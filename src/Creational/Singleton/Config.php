@@ -16,7 +16,7 @@ final class Config
 
     public static function getInstance(): Config
     {
-        if (self::$instance === null) {
+        if (null === self::$instance) {
             self::$instance = new Config();
         }
 

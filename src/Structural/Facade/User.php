@@ -24,7 +24,7 @@ final class User
 
     public function hasPhoneNumber(): bool
     {
-        return $this->phoneNumber !== null;
+        return null !== $this->phoneNumber;
     }
 
     public function getPhoneNumber(): ?string

@@ -6,7 +6,7 @@ namespace DesignPatterns\Creational\SimpleFactory;
 
 final class VeganMeal implements MealInterface
 {
-    public function containsAnimalProducts(): bool
+    public function containsAnimalProducts(): false
     {
         return false;
     }

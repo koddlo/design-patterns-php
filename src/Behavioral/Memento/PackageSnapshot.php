@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Behavioral\Memento;
 
-final class PackageSnapshot
+final readonly class PackageSnapshot
 {
     public function __construct(
-        public readonly float $width,
-        public readonly float $height,
-        public readonly float $length,
-        public readonly float $weight
+        public float $width,
+        public float $height,
+        public float $length,
+        public float $weight
     ) {}
 }

@@ -11,7 +11,11 @@ final class Sponsor implements SplObserver
 {
     public function update(SplSubject $subject): void
     {
-        if (!$subject->isOnline()) {
+        if (! $subject instanceof Conference) {
+            return;
+        }
+
+        if (! $subject->isOnline()) {
             return;
         }
 

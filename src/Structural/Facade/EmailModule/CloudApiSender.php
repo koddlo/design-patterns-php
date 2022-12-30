@@ -13,7 +13,7 @@ final class CloudApiSender
     /** @throws UserNotFoundException */
     public function send(string $email): string
     {
-        if (!$this->cloudClient->hasAccount($email)) {
+        if (! $this->cloudClient->hasAccount($email)) {
             throw new UserNotFoundException();
         }
 

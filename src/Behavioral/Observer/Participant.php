@@ -19,6 +19,10 @@ final class Participant implements SplObserver
 
     public function update(SplSubject $subject): void
     {
+        if (! $subject instanceof Conference) {
+            return;
+        }
+
         $conferenceId = $subject->getId();
         $conferenceDate = $subject->getDate();
 

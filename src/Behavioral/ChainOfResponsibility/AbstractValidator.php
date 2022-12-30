@@ -10,7 +10,7 @@ abstract class AbstractValidator
 
     public function validate(mixed $data): bool
     {
-        if ($this->next === null) {
+        if (null ===$this->next) {
             return true;
         }
 

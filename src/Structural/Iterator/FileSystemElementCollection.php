@@ -32,7 +32,7 @@ final class FileSystemElementCollection implements Iterator
 
     public function valid(): bool
     {
-        return $this->key() !== null;
+        return null !== $this->key();
     }
 
     public function rewind(): void

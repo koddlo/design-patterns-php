@@ -4,12 +4,8 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Creational\SimpleFactory;
 
-final class MealType
+enum MealType: string
 {
-    public const TYPE_VEGETARIAN = 'vegetarian';
-    public const TYPE_VEGAN = 'vegan';
-
-    public function __construct(
-        public readonly string $name
-    ) {}
+    case VEGETARIAN = 'vegetarian';
+    case VEGAN = 'vegan';
 }

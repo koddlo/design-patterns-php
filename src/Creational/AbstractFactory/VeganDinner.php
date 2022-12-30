@@ -6,7 +6,7 @@ namespace DesignPatterns\Creational\AbstractFactory;
 
 final class VeganDinner implements DinnerInterface
 {
-    public function canBePackedInGlassContainer(): bool
+    public function canBePackedInGlassContainer(): true
     {
         return true;
     }

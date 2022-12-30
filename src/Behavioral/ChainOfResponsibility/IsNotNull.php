@@ -8,7 +8,7 @@ final class IsNotNull extends AbstractValidator
 {
     public function validate(mixed $data): bool
     {
-        if ($data === null) {
+        if (null === $data) {
             return false;
         }
 
