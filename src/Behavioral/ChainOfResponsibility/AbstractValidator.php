@@ -20,6 +20,7 @@ abstract class AbstractValidator
     public function next(self $next): self
     {
         $this->next = $next;
+
         return $next;
     }
 }
