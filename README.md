@@ -30,6 +30,7 @@ Behavioral:
 - [Memento](https://koddlo.pl/memento-pamiatka/)
 - [Null Object](https://koddlo.pl/null-object-pusty-obiekt/)
 - [Observer](https://koddlo.pl/observer-obserwator/)
+- [State](https://koddlo.pl/state-stan/)
 - [Strategy](https://koddlo.pl/strategy-strategia/)
 - [Template Method](https://koddlo.pl/template-method-metoda-szablonowa/)
 - [Visitor](https://koddlo.pl/visitor-odwiedzajacy/)
