@@ -6,8 +6,8 @@ namespace DesignPatterns\Behavioral\Command;
 
 final class Post implements InteractiveInterface
 {
-    public const LIKE_SLUG = 'like';
-    public const WOW_SLUG = 'wow';
+    public const string LIKE_SLUG = 'like';
+    public const string WOW_SLUG = 'wow';
 
     public function __construct(
         private array $reactionStatistics = []

@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace DesignPatterns\Behavioral\TemplateMethod\Test;
 
+use BadMethodCallException;
 use DesignPatterns\Behavioral\TemplateMethod\TxtFileLogSynchronizer;
 use PHPUnit\Framework\TestCase;
 
@@ -15,7 +16,7 @@ final class TxtFileLogSynchronizerTest extends TestCase
 
         try {
             $logSynchronizer->synchronize('test_logs.txt');
-        } catch (\BadMethodCallException $exception) {
+        } catch (BadMethodCallException) {
             self::fail('Synchronize action using test_logs.txt does not work.');
         }
 

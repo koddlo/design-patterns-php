@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Behavioral\Observer\Test;
+namespace DesignPatterns\Behavioral\Observer\Test;
 
 use DateTimeImmutable;
 use DesignPatterns\Behavioral\Observer\Conference;

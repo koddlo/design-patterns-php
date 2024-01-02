@@ -8,6 +8,7 @@ use DesignPatterns\Behavioral\ChainOfResponsibility\IsGreaterThan;
 use DesignPatterns\Behavioral\ChainOfResponsibility\IsLessThan;
 use DesignPatterns\Behavioral\ChainOfResponsibility\IsNotNull;
 use DesignPatterns\Behavioral\ChainOfResponsibility\IsString;
+use DesignPatterns\Behavioral\ChainOfResponsibility\ValidatorChain;
 use PHPUnit\Framework\TestCase;
 
 final class ChainTest extends TestCase
@@ -19,9 +20,10 @@ final class ChainTest extends TestCase
         $isNotLessThan10 = 'Test10test';
         $isNotGreaterThan5 = 'Test5';
         $isValid = 'Valid!';
-        $chainValidation = new IsNotNull();
+        $chainValidation = new ValidatorChain();
 
         $chainValidation
+            ->next(new IsNotNull())
             ->next(new IsString())
             ->next(new IsLessThan(10))
             ->next(new IsGreaterThan(5));

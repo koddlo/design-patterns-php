@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Behavioral\Command\Test;
+namespace DesignPatterns\Behavioral\Command\Test;
 
 use DesignPatterns\Behavioral\Command\CommandInterface;
 use DesignPatterns\Behavioral\Command\CommandInvoker;

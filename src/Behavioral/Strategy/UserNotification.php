@@ -6,7 +6,7 @@ namespace DesignPatterns\Behavioral\Strategy;
 
 final class UserNotification
 {
-    public const PASSWORD_EXPIRE_MESSAGE = 'Your password will expire in 3 days. Please change it as soon as possible.';
+    public const string PASSWORD_EXPIRE_MESSAGE = 'Your password will expire in 3 days. Please change it as soon as possible.';
 
     public function onPasswordExpired(NotificationPreference $notificationPreference): array
     {

@@ -6,7 +6,7 @@ namespace DesignPatterns\Structural\Bridge;
 
 final class Senior implements JobLevelInterface
 {
-    private const AUTHORITY = 7;
+    private const int AUTHORITY = 7;
 
     public function getAuthorityFactor(): float
     {

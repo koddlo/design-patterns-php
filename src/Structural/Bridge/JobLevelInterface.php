@@ -6,7 +6,7 @@ namespace DesignPatterns\Structural\Bridge;
 
 interface JobLevelInterface
 {
-    public const MAX_AUTHORITY = 10;
+    public const int MAX_AUTHORITY = 10;
 
     public function getAuthorityFactor(): float;
 }

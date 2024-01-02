@@ -6,8 +6,8 @@ namespace DesignPatterns\Structural\Bridge;
 
 final class TrainingBudget extends AbstractBenefit
 {
-    private const MAX_GRANT = 1000;
-    private const BONUS_RATIO = 3;
+    private const int MAX_GRANT = 1000;
+    private const int BONUS_RATIO = 3;
 
     public function calculateGrant(): float
     {

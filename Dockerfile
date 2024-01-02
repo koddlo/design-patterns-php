@@ -1,4 +1,4 @@
-FROM php:8.2-cli-alpine
+FROM php:8.3-cli-alpine
 
 RUN apk add --no-cache libzip-dev  zip \
   && docker-php-ext-install zip \

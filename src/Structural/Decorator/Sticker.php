@@ -6,7 +6,7 @@ namespace DesignPatterns\Structural\Decorator;
 
 final class Sticker extends AbstractOptionDecorator
 {
-    public const PRICE = 12.00;
+    public const float PRICE = 12.00;
 
     public function calculatePrice(): float
     {

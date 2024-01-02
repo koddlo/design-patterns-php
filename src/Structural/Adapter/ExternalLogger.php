@@ -8,7 +8,7 @@ use DateTimeImmutable;
 
 class ExternalLogger
 {
-    private const FILE_DIR = 'data/log/';
+    private const string FILE_DIR = 'data/log/';
 
     public function saveLogIntoFile(string $log): void
     {

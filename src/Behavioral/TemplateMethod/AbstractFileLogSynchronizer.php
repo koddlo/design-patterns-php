@@ -6,7 +6,7 @@ namespace DesignPatterns\Behavioral\TemplateMethod;
 
 abstract class AbstractFileLogSynchronizer
 {
-    private const FILE_PATH = __DIR__ . '/synchronization/files/';
+    private const string FILE_PATH = __DIR__ . '/synchronization/files/';
 
     public function __construct(
         private LogRepositoryInterface $logRepository

@@ -6,10 +6,10 @@ namespace DesignPatterns\Behavioral\Memento;
 
 final class Package
 {
-    private const SMALL_WIDTH = 8.00;
-    private const SMALL_HEIGHT = 38.00;
-    private const SMALL_LENGTH = 68.00;
-    private const SMALL_WEIGHT = 25.00;
+    private const float SMALL_WIDTH = 8.00;
+    private const float SMALL_HEIGHT = 38.00;
+    private const float SMALL_LENGTH = 68.00;
+    private const float SMALL_WEIGHT = 25.00;
 
     public function __construct(
         private float $width,

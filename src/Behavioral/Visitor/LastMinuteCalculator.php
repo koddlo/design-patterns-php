@@ -6,7 +6,7 @@ namespace DesignPatterns\Behavioral\Visitor;
 
 final class LastMinuteCalculator implements PriceCalculatorInterface
 {
-    private const EXHIBITION_PRICE = 2000.00;
+    private const float EXHIBITION_PRICE = 2000.00;
 
     public function __construct(
         private float $price

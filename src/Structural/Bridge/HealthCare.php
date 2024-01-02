@@ -6,7 +6,7 @@ namespace DesignPatterns\Structural\Bridge;
 
 final class HealthCare extends AbstractBenefit
 {
-    private const MAX_GRANT = 1200;
+    private const int MAX_GRANT = 1200;
 
     public function calculateGrant(): float
     {

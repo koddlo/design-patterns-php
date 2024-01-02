@@ -6,7 +6,7 @@ namespace DesignPatterns\Structural\Decorator;
 
 final class Accommodation extends AbstractOptionDecorator
 {
-    public const PRICE = 180.00;
+    public const float PRICE = 180.00;
 
     public function calculatePrice(): float
     {
