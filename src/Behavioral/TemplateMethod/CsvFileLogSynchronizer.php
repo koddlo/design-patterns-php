@@ -12,7 +12,7 @@ final class CsvFileLogSynchronizer extends AbstractFileLogSynchronizer
     {
         $unprocessedLogs = [];
         $file = fopen($filePath, 'r');
-        while (($unprocessedLog = fgetcsv($file, 0, ':')) !== false) {
+        while (($unprocessedLog = fgetcsv($file, 0, ':', '"', '')) !== false) {
             $unprocessedLogs[] = $unprocessedLog;
         }
 
