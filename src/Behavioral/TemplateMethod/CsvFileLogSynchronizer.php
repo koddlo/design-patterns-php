@@ -25,12 +25,12 @@ final class CsvFileLogSynchronizer extends AbstractFileLogSynchronizer
     {
         $logs = [];
         foreach ($unprocessedLogs as $unprocessedLog) {
-            $logDate = DateTimeImmutable::createFromFormat('Y-m-d H:i:s', reset($unprocessedLog));
+            $logDate = DateTimeImmutable::createFromFormat('Y-m-d H:i:s', array_first($unprocessedLog));
             if (false === $logDate) {
                 continue;
             }
 
-            $logs[] = new Log($logDate, end($unprocessedLog));
+            $logs[] = new Log($logDate, array_last($unprocessedLog));
         }
 
         return $logs;

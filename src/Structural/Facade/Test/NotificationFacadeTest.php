@@ -20,7 +20,7 @@ final class NotificationFacadeTest extends TestCase
         $user = new User('test@koddlo.pl');
         $user->setPhoneNumber($phoneNumber);
         $notificationFacade = new NotificationFacade(
-            new CloudApiSender($this->createMock(CloudClientInterface::class)),
+            new CloudApiSender($this->createStub(CloudClientInterface::class)),
             new SmtpSender(),
             new SmsNotifier()
         );
@@ -32,7 +32,7 @@ final class NotificationFacadeTest extends TestCase
     {
         $email = 'test@koddlo.pl';
         $user = new User($email);
-        $cloudClient = $this->createMock(CloudClientInterface::class);
+        $cloudClient = $this->createStub(CloudClientInterface::class);
         $cloudClient
             ->method('hasAccount')
             ->with($email)
@@ -50,7 +50,7 @@ final class NotificationFacadeTest extends TestCase
     {
         $email = 'test@koddlo.pl';
         $user = new User($email);
-        $cloudClient = $this->createMock(CloudClientInterface::class);
+        $cloudClient = $this->createStub(CloudClientInterface::class);
         $cloudClient
             ->method('hasAccount')
             ->with($email)

@@ -14,9 +14,8 @@ final class FileEncoderProxyTest extends TestCase
     {
         $fileTestPath = 'https://koddlo.pl/images/test.png';
         $base64example = 'S29kZGxv';
-        $fileEncoder = $this->createMock(FileEncoder::class);
+        $fileEncoder = $this->createStub(FileEncoder::class);
         $fileEncoder
-            ->expects($this->any())
             ->method('encodeBase64')
             ->with($fileTestPath)
             ->willReturn($base64example);
